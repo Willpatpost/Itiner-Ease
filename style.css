@@ -95,6 +95,22 @@ header {
   margin: auto;
 }
 
+/* New styling for each presentation container */
+.presentation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.presentation h2 {
+  margin-bottom: 0.5rem;
+}
+
+/* Adjust the iframe styling */
 .iframe-grid iframe {
   width: 65vw;  /* Adjust width to match slide size */
   max-width: 960px; /* Ensure it does not get too wide */
