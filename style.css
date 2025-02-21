@@ -46,58 +46,117 @@ body {
   transition: color 0.3s ease;
 }
 
-.navbar .nav-links a:hover {
+.navbar .nav-links a:hover,
+.navbar .nav-links a.active {
   color: #007BFF;
 }
 
-/* Header Section for Home Page */
-header {
-  text-align: center;
-  padding: 2rem;
+/* Hero Section for Home Page */
+.site-header {
   background: #e9ecef;
 }
 
-.header-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.main-title {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Title Color Styling */
-.blue {
-  color: #007BFF; /* Blue */
-}
-
-.green {
-  color: #28a745; /* Green */
-}
-
-.header-content p {
-  font-size: 1.1rem;
-  color: #666;
-}
-
-/* Main Content */
-.content {
-  padding: 2rem;
+.hero {
   text-align: center;
+  padding: 4rem 2rem;
+  background: url('Data/Images/hero-background.jpg') no-repeat center center/cover;
+  color: #fff;
+  position: relative;
 }
 
-/* Presentation Grid */
+.hero:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero h1,
+.hero p,
+.hero .btn {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #28a745;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #218838;
+}
+
+/* Main Content Sections for Home Page */
+main {
+  padding: 2rem;
+  background-color: #f4f4f4;
+}
+
+.about, .features {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.about h2, .features h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #007BFF;
+}
+
+.about p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.features ul li {
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.features ul li:last-child {
+  border-bottom: none;
+}
+
+/* Presentation Page Styles */
 .iframe-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Single column to stack presentations */
+  grid-template-columns: 1fr;
   gap: 1.5rem;
   justify-content: center;
   max-width: 90%;
   margin: auto;
 }
 
-/* New styling for each presentation container */
 .presentation {
   display: flex;
   flex-direction: column;
@@ -112,17 +171,16 @@ header {
   margin-bottom: 0.5rem;
 }
 
-/* Adjust the iframe styling */
 .iframe-grid iframe {
-  width: 65vw;  /* Adjust width to match slide size */
-  max-width: 960px; /* Ensure it does not get too wide */
-  height: 500px; /* Increase height to better fit slides */
+  width: 65vw;
+  max-width: 960px;
+  height: 500px;
   border: 0;
   display: block;
   margin: auto;
 }
 
-/* Team Section */
+/* Team Page Styles */
 .team {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -153,4 +211,13 @@ header {
 .team-member p {
   font-size: 0.9rem;
   color: #555;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+  margin-top: 2rem;
 }
