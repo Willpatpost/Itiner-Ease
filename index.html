@@ -5,23 +5,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- SEO & Metadata -->
+  <meta name="description" content="ItinerEase helps you plan your perfect journey with personalized itineraries and local insights." />
+  <meta property="og:title" content="ItinerEase | Home" />
+  <meta property="og:description" content="Plan your perfect journey with personalized itineraries and local insights." />
+  <meta property="og:image" content="Data/Images/hero-background.jpg" />
+  <meta property="og:url" content="https://yourdomain.com/index.html" />
+  <meta property="og:type" content="website" />
   <title>ItinerEase | Home</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="home">
   <header class="site-header">
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
       <div class="logo">ItinerEase</div>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="problem.html">Problem</a></li>
+        <li><a href="solution.html">Solution</a></li>
         <li><a href="presentations.html">Presentations</a></li>
+        <li><a href="deliverables.html">Deliverables</a></li>
+        <li><a href="labs.html">Labs</a></li>
         <li><a href="team.html">Team Bio</a></li>
+        <li><a href="references.html">References</a></li>
       </ul>
     </nav>
     <div class="hero">
       <h1>Plan Your Perfect Journey</h1>
       <p>Simplify your travel planning with personalized itineraries and local insights.</p>
-      <a href="presentations.html" class="btn">Discover More</a>
+      <a href="problem.html" class="btn">Discover More</a>
     </div>
   </header>
   <main>
@@ -31,18 +43,10 @@
         ItinerEase is a mobile application designed to simplify and personalize itinerary planning for travelers, new residents, and spontaneous adventurers. Our app generates custom itineraries based on your location and interests, helping you discover hidden gems and plan memorable trips without the hassle of sifting through endless options.
       </p>
     </section>
-    <section class="features">
-      <h2>Features</h2>
-      <ul>
-        <li><strong>Personalized Itineraries:</strong> Custom trips tailored to your interests and location.</li>
-        <li><strong>Local Discovery:</strong> Find unique local attractions and hidden gems.</li>
-        <li><strong>Real-Time Adjustments:</strong> Adapt your plans on the go with dynamic recommendations.</li>
-        <li><strong>Group Collaboration:</strong> Coordinate with friends and family for a seamless travel experience.</li>
-      </ul>
-    </section>
   </main>
   <footer>
     <p>&copy; 2025 ItinerEase. All rights reserved.</p>
   </footer>
+  <script src="nav-active.js"></script>
 </body>
 </html>

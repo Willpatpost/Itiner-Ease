@@ -14,7 +14,7 @@ body {
   background-color: #f4f4f4;
 }
 
-/* Navigation Bar */
+/* Sticky Navigation Bar (Header) */
 .navbar {
   background-color: #fff;
   display: flex;
@@ -22,6 +22,11 @@ body {
   align-items: center;
   padding: 1rem 2rem;
   border-bottom: 1px solid #ddd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 .navbar .logo {
@@ -54,6 +59,7 @@ body {
 /* Hero Section for Home Page */
 .site-header {
   background: #e9ecef;
+  margin-top: 80px; /* Offset for fixed navbar */
 }
 
 .hero {
@@ -110,6 +116,8 @@ body {
 main {
   padding: 2rem;
   background-color: #f4f4f4;
+  margin-top: 80px;  /* Ensure content isn't hidden behind the fixed header */
+  margin-bottom: 80px;  /* Provide space for the fixed footer */
 }
 
 .about, .features {
@@ -213,11 +221,51 @@ main {
   color: #555;
 }
 
-/* Footer */
+/* Deliverables Page Styles */
+body.deliverables {
+  background-color: #f4f4f4;
+}
+
+.deliverables .iframe-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  max-width: 90%;
+  margin: auto;
+}
+
+/* Fixed container with relative positioning */
+.deliverables .presentation {
+  width: 100%;
+  max-width: 900px;
+  overflow: hidden;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  height: 500px; /* Adjust this height as needed based on your images’ aspect ratios */
+}
+
+/* Position the iframe absolutely to fill the container */
+.deliverables .presentation iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: contain; /* Attempts to scale the image within the iframe */
+}
+
+/* Sticky Footer */
 footer {
   text-align: center;
   padding: 1rem;
   background-color: #fff;
   border-top: 1px solid #ddd;
-  margin-top: 2rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
