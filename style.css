@@ -226,7 +226,7 @@ body.deliverables {
   background-color: #f4f4f4;
 }
 
-.deliverables .iframe-grid {
+.deliverables .image-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
@@ -235,26 +235,23 @@ body.deliverables {
   margin: auto;
 }
 
-/* Fixed container with relative positioning */
 .deliverables .presentation {
-  width: 100%;
-  max-width: 900px;
-  overflow: hidden;
-  text-align: center;
-  padding: 1rem;
-  position: relative;
-  height: 500px; /* Adjust this height as needed based on your images’ aspect ratios */
+    width: 100%;
+    max-width: 900px; /* Adjust as needed */
+    overflow: hidden; /* Prevents scrollbars */
+    text-align: center;
 }
 
-/* Position the iframe absolutely to fill the container */
-.deliverables .presentation iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  object-fit: contain; /* Attempts to scale the image within the iframe */
+.deliverables .presentation h2 {
+  margin-bottom: 0.5rem;
+}
+
+.deliverables .deliverable-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+    object-fit: contain; /* Ensures the whole image fits */
 }
 
 /* Sticky Footer */
