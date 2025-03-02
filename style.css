@@ -8,13 +8,29 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   line-height: 1.6;
   color: #333;
   background-color: #f4f4f4;
 }
 
-/* Sticky Navigation Bar (Header) */
+/* Skip Link for Accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #007BFF;
+  color: #fff;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Navigation Bar */
 .navbar {
   background-color: #fff;
   display: flex;
@@ -30,7 +46,7 @@ body {
 }
 
 .navbar .logo {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: #333;
 }
@@ -56,22 +72,20 @@ body {
   color: #007BFF;
 }
 
-/* Hero Section for Home Page */
+/* Header and Hero Section */
 .site-header {
-  background: #e9ecef;
   margin-top: 80px; /* Offset for fixed navbar */
 }
 
 .hero {
+  position: relative;
   text-align: center;
   padding: 4rem 2rem;
   background: url('Data/Images/hero-background.jpg') no-repeat center center/cover;
   color: #fff;
-  position: relative;
 }
 
-.hero:before {
-  content: "";
+.hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -80,9 +94,7 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.hero h1,
-.hero p,
-.hero .btn {
+.hero-content {
   position: relative;
   z-index: 1;
 }
@@ -97,6 +109,7 @@ body {
   margin-bottom: 2rem;
 }
 
+/* Button Styles */
 .btn {
   display: inline-block;
   background-color: #28a745;
@@ -112,88 +125,87 @@ body {
   background-color: #218838;
 }
 
-/* Main Content Sections for Home Page */
+/* Main Content */
 main {
   padding: 2rem;
+  max-width: 1200px;
+  margin: 100px auto 100px auto;
   background-color: #f4f4f4;
-  margin-top: 80px;  /* Ensure content isn't hidden behind the fixed header */
-  margin-bottom: 80px;  /* Provide space for the fixed footer */
 }
 
-.about, .features {
-  max-width: 800px;
-  margin: 2rem auto;
+/* Section Styles */
+section {
+  margin-bottom: 2rem;
   background: #fff;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.about h2, .features h2 {
+section h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #007BFF;
 }
 
-.about p {
+section p,
+section li {
   font-size: 1.1rem;
   color: #555;
 }
 
-.features ul {
-  list-style: none;
-  padding: 0;
+/* List Styles */
+ul, ol {
+  padding-left: 1.5rem;
+  margin-top: 1rem;
 }
 
-.features ul li {
-  font-size: 1.1rem;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #ddd;
+li {
+  margin-bottom: 0.5rem;
 }
 
-.features ul li:last-child {
-  border-bottom: none;
-}
-
-/* Presentation Page Styles */
+/* Iframe Grid for Deliverables and Presentations */
 .iframe-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 2rem;
   justify-content: center;
-  max-width: 90%;
-  margin: auto;
+  margin: 2rem auto;
 }
 
 .presentation {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background: #fff;
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
-.presentation h2 {
+.presentation h2,
+.presentation h3 {
   margin-bottom: 0.5rem;
 }
 
-.iframe-grid iframe {
-  width: 65vw;
-  max-width: 960px;
-  height: 500px;
-  border: 0;
+.presentations .presentation iframe {
+  width: 100%;
+  height: 600px; /* Adjust this value as needed */
+}
+
+/* Deliverable Images */
+.deliverable-img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
   display: block;
-  margin: auto;
+  margin: 1rem auto;
+  object-fit: contain;
 }
 
 /* Team Page Styles */
-.team {
+.team-members {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
-  margin-top: 1.5rem;
 }
 
 .team-member {
@@ -217,44 +229,11 @@ main {
 }
 
 .team-member p {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: #555;
 }
 
-/* Deliverables Page Styles */
-body.deliverables {
-  background-color: #f4f4f4;
-}
-
-.deliverables .image-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-  max-width: 90%;
-  margin: auto;
-}
-
-.deliverables .presentation {
-    width: 100%;
-    max-width: 900px; /* Adjust as needed */
-    overflow: hidden; /* Prevents scrollbars */
-    text-align: center;
-}
-
-.deliverables .presentation h2 {
-  margin-bottom: 0.5rem;
-}
-
-.deliverables .deliverable-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: auto;
-    object-fit: contain; /* Ensures the whole image fits */
-}
-
-/* Sticky Footer */
+/* Footer */
 footer {
   text-align: center;
   padding: 1rem;
@@ -265,4 +244,28 @@ footer {
   left: 0;
   right: 0;
   z-index: 1000;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .navbar .nav-links {
+    flex-direction: column;
+    width: 100%;
+  }
+  .navbar .nav-links li {
+    margin: 0.5rem 0;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .iframe-grid {
+    grid-template-columns: 1fr;
+  }
 }
