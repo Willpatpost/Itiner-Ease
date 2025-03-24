@@ -260,6 +260,38 @@ footer a:hover {
   text-decoration: underline;
 }
 
+/* New: Cover Image Section */
+.cover {
+  text-align: center;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.cover-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* New: Learn More Links */
+.learn-more {
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.learn-more a {
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.learn-more a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .navbar {
