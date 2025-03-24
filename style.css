@@ -246,6 +246,20 @@ footer {
   z-index: 1000;
 }
 
+footer p {
+  margin: 0.5rem 0;
+}
+
+footer a {
+  color: #007BFF;
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .navbar {
