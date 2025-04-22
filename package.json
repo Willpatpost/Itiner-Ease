@@ -1,0 +1,11 @@
+{
+  "name": "itinerEase",
+  "version": "1.0.0",
+  "description": "ItinerEase GitHub Pages site",
+  "scripts": {
+    "start": "live-server --port=8080",
+    "build": "echo 'Build steps here...'"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
