@@ -16,9 +16,10 @@
   <title>ItinerEase | Team</title>
   <link rel="stylesheet" href="style.css">
 
+  <!-- TEAM PAGE CUSTOM STYLES -->
   <style>
 
-    /* === Fade-in animation === */
+    /* Fade-in animation */
     .fade-in {
       opacity: 0;
       transform: translateY(25px);
@@ -29,7 +30,7 @@
       transform: translateY(0);
     }
 
-    /* === 2 ROWS OF 4 === */
+    /* === Grid: exactly 2 rows of 4 === */
     .team-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -37,104 +38,101 @@
       margin-top: 2rem;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1100px) {
       .team-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
       .team-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    /* === Card container === */
+    /* Card container */
     .card {
       perspective: 1000px;
       cursor: pointer;
     }
 
+    /* Inner card for flipping */
     .card-inner {
       width: 100%;
-      height: 360px;
+      height: 400px;
       position: relative;
       transition: transform 0.8s;
       transform-style: preserve-3d;
     }
 
-    .flipped {
+    /* Flip when .flipped class is added */
+    .card.flipped .card-inner {
       transform: rotateY(180deg);
     }
 
-    /* === Card faces === */
-    .card-front,
-    .card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 16px;
+    /* Card faces */
+    .card-front, .card-back {
       background: #fff;
       padding: 1.5rem;
+      border-radius: 16px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       backface-visibility: hidden;
-    }
-
-    .card-front {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-rows: 150px 80px 60px;
+      justify-items: center;
       align-items: center;
-      justify-content: center;
+      text-align: center;
     }
 
     .card-back {
       transform: rotateY(180deg);
-      text-align: center;
+      padding: 2rem;
+      grid-template-rows: auto 1fr;
       overflow-y: auto;
     }
 
-    /* === Headshots (no border now) === */
+    /* Headshots — no ring */
     .card-front img {
       width: 130px;
       height: 130px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 1rem;
-      border: none;
+      margin-bottom: 0.5rem;
+      border: none !important;
     }
 
-    /* === Role Colors === */
-    .role-tag {
+    /* Name styling */
+    .card-front h3 {
+      margin: 0;
+      font-size: 1.25rem;
       font-weight: bold;
-      margin-bottom: 0.75rem;
-      font-size: 0.95rem;
+      text-align: center;
     }
 
-    .role-tag[data-role="Software and Database Developer"] {
-      color: #007BFF;
+    /* Role Tag */
+    .role-tag {
+      font-size: 0.9rem;
+      font-weight: bold;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.05);
     }
 
-    .role-tag[data-role="Software Developer and AI Expert"] {
-      color: #E67E22;
-    }
+    /* --- Role Colors --- */
+    .role-tag[data-role*="AI"] { color: #9b27b0; }          /* Purple */
+    .role-tag[data-role*="Database"] { color: #0277bd; }    /* Blue */
+    .role-tag[data-role*="Webmaster"] { color: #2e7d32; }   /* Green */
+    .role-tag[data-role*="Mentor"] { color: #ef6c00; }      /* Orange */
+    .role-tag[data-role*="Developer"] { color: #6a1b9a; }   /* Deep purple */
 
-    .role-tag[data-role="Software Developer"] {
-      color: #27AE60;
-    }
-
-    .role-tag[data-role="Software Developer and Webmaster"] {
-      color: #9B59B6;
-    }
-
-    .role-tag[data-role="Mentor"] {
-      color: #C0392B;
-    }
-
-    /* === Back text styling === */
+    /* Back card bio */
     .card-back p {
+      font-size: 0.95rem;
       color: #444;
       line-height: 1.45;
-      font-size: 0.95rem;
       margin-top: 0.5rem;
     }
 
@@ -154,129 +152,155 @@
       <p>We are a diverse and dedicated team committed to building a seamless, smart travel planning experience.</p>
     </header>
 
+    <!-- TEAM GRID -->
     <section class="team-grid">
 
-      <!-- CRYSTAL -->
+      <!-- ==== CRYSTAL ==== -->
       <div class="card fade-in">
         <div class="card-inner">
+
           <div class="card-front">
             <img src="data/images/headshots/Crystal Headshot.png" alt="Crystal Rivas">
             <h3>Crystal Rivas</h3>
             <div class="role-tag" data-role="Software and Database Developer">Software and Database Developer</div>
           </div>
+
           <div class="card-back">
             <h3>Crystal Rivas</h3>
             <p>Crystal is a second degree student in Computer Science at ODU with a background in math education, driving innovative solutions through strong problem-solving skills.</p>
           </div>
+
         </div>
       </div>
 
-      <!-- STEPHEN -->
+      <!-- ==== STEPHEN ==== -->
       <div class="card fade-in">
         <div class="card-inner">
+
           <div class="card-front">
             <img src="data/images/headshots/Stephen Headshot.jpg" alt="Stephen Usselman">
             <h3>Stephen Usselman</h3>
             <div class="role-tag" data-role="Software Developer and AI Expert">Software Developer and AI Expert</div>
           </div>
+
           <div class="card-back">
             <h3>Stephen Usselman</h3>
             <p>Stephen, a senior at ODU majoring in Computer Science, aspires to become a Software Developer and bring creative ideas to life.</p>
           </div>
+
         </div>
       </div>
 
-      <!-- WILLIAM M -->
+      <!-- ==== WILLIAM M ==== -->
       <div class="card fade-in">
         <div class="card-inner">
+
           <div class="card-front">
             <img src="data/images/headshots/William M. Headshot.jpg" alt="William Mbandi">
             <h3>William Mbandi</h3>
             <div class="role-tag" data-role="Software Developer">Software Developer</div>
           </div>
+
           <div class="card-back">
             <h3>William Mbandi</h3>
             <p>William is a senior at ODU majoring in Computer Science with a minor in Cyber Security, aiming for a future in Software Development.</p>
           </div>
+
         </div>
       </div>
 
-      <!-- WILLIAM P -->
+      <!-- ==== WILLIAM P ==== -->
       <div class="card fade-in">
         <div class="card-inner">
+
           <div class="card-front">
             <img src="data/images/headshots/William P. Headshot.jpg" alt="William Poston">
             <h3>William Poston</h3>
             <div class="role-tag" data-role="Software Developer and Webmaster">Software Developer and Webmaster</div>
           </div>
+
           <div class="card-back">
             <h3>William Poston</h3>
             <p>William is a senior at ODU majoring in Computer Science with a minor in Data Science, dreaming of a career as an AI prompt engineer.</p>
           </div>
+
         </div>
       </div>
 
-      <!-- JANDRA -->
+      <!-- ==== JANDRA ==== -->
       <div class="card fade-in">
         <div class="card-inner">
+
           <div class="card-front">
             <img src="data/images/headshots/Jandra Headshot.jpg" alt="Jandra D. Arias Tavarez">
             <h3>Jandra D. Arias Tavarez</h3>
             <div class="role-tag" data-role="Software and Database Developer">Software and Database Developer</div>
           </div>
+
           <div class="card-back">
             <h3>Jandra D. Arias Tavarez</h3>
             <p>Jandra is a second degree student at ODU pursuing a Bachelor's in Computer Science, with aspirations to become a Software Developer.</p>
           </div>
+
         </div>
       </div>
 
-      <!-- FREDRICK -->
+      <!-- ==== FREDRICK ==== -->
       <div class="card fade-in">
         <div class="card-inner">
+
           <div class="card-front">
             <img src="data/images/headshots/Fredrick Headshot.jpg" alt="Fredrick Terling">
             <h3>Fredrick Terling</h3>
             <div class="role-tag" data-role="Software Developer">Software Developer</div>
           </div>
+
           <div class="card-back">
             <h3>Fredrick Terling</h3>
             <p>Fredrick is a senior at ODU majoring in Computer Science, with dreams of entering the tech industry as a Game Developer and eventually a Game Producer.</p>
           </div>
+
         </div>
       </div>
 
-      <!-- BALEMUAL -->
+      <!-- ==== BALEMUAL ==== -->
       <div class="card fade-in">
         <div class="card-inner">
+
           <div class="card-front">
             <img src="data/images/headshots/Balemual Headshot.jpg" alt="Balemual Ymamu">
             <h3>Balemual Ymamu</h3>
             <div class="role-tag" data-role="Software and Database Developer">Software and Database Developer</div>
           </div>
+
           <div class="card-back">
             <h3>Balemual Ymamu</h3>
             <p>Balemual Ymamu is a senior at ODU majoring in Computer Science. He is eager to gain hands-on experience in tech field and look forward to working as a Software Developer after graduation.</p>
           </div>
+
         </div>
       </div>
 
-      <!-- JACOB -->
+      <!-- ==== JACOB ==== -->
       <div class="card fade-in">
         <div class="card-inner">
+
           <div class="card-front">
             <img src="data/images/headshots/Jacob Headshot.jpg" alt="Jacob Cook">
             <h3>Jacob Cook</h3>
             <div class="role-tag" data-role="Mentor">Mentor</div>
           </div>
+
           <div class="card-back">
             <h3>Jacob Cook</h3>
             <p>Jacob Cook is an ODU Computer Science alumnus, IT Instructor at the Southern Virginia Higher Education Center, and founder/CEO of Southside Tech Services.</p>
           </div>
+
         </div>
       </div>
 
-    </section>
+    </section> <!-- END GRID -->
+
   </main>
 
   <div id="footer-placeholder"></div>
@@ -284,23 +308,22 @@
   <script src="templateLoader.js"></script>
   <script src="anotherScript.js"></script>
 
-  <!-- Fade-in animation -->
+  <!-- Fade-in intersection observer -->
   <script>
     const fadeEls = document.querySelectorAll(".fade-in");
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add("visible");
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.15 });
     fadeEls.forEach(el => observer.observe(el));
   </script>
 
-  <!-- Flip-on-click -->
+  <!-- Click-to-flip logic -->
   <script>
     document.querySelectorAll(".card").forEach(card => {
       card.addEventListener("click", () => {
-        const inner = card.querySelector(".card-inner");
-        inner.classList.toggle("flipped");
+        card.classList.toggle("flipped");
       });
     });
   </script>
