@@ -10,135 +10,116 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.6;
-  color: #333;
-  background-color: #f4f4f4;
+  background-color: #FFF5EC; /* sand.100 */
+  color: #1A1A1A; /* ink.900 */
 }
 
-/* ============================
-   Skip Link
-   ============================ */
+/* Skip Link */
 .skip-link {
   position: absolute;
   top: -40px;
   left: 0;
-  background: #007BFF;
-  color: #fff;
+  background: #FF8C42; /* copper */
+  color: #FFF;
   padding: 8px;
   z-index: 100;
   transition: top 0.3s;
 }
-.skip-link:focus {
-  top: 0;
-}
+.skip-link:focus { top: 0; }
 
 /* =========================================================
-   HEADER / NAVIGATION BAR (Updated with Logo)
+   HEADER / NAVBAR
    ========================================================= */
 .navbar {
-  background-color: #fff;
+  background-color: #FFF9F3; /* sand */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 2rem;
-  border-bottom: 1px solid #ddd;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  border-bottom: 1px solid #E5E5E5; /* ink.200 */
+  position: fixed; top: 0; left: 0; right: 0;
   z-index: 1000;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
 }
 
-.logo-link {
-  display: flex;
-  align-items: center;
-}
+.logo-link { display: flex; align-items: center; }
 .logo-img {
   height: 48px;
   width: auto;
-  display: block;
   transition: opacity 0.2s ease;
 }
-.logo-link:hover .logo-img {
-  opacity: 0.85;
-}
+.logo-link:hover .logo-img { opacity: 0.85; }
 
-.navbar .nav-links {
+/* Nav links */
+.nav-links {
   list-style: none;
   display: flex;
 }
-.navbar .nav-links li {
+.nav-links li {
   margin-left: 1.5rem;
 }
-.navbar .nav-links a {
+.nav-links a {
   text-decoration: none;
-  color: #333;
+  color: #1A1A1A; /* ink.900 */
   font-size: 1rem;
   transition: color 0.3s ease;
 }
-.navbar .nav-links a:hover,
-.navbar .nav-links a.active {
-  color: #007BFF;
+.nav-links a:hover,
+.nav-links a.active {
+  color: #D76B00; /* copper.dark */
 }
 
 /* =========================================================
-   PAGE CONTENT WRAPPER
+   MAIN CONTENT
    ========================================================= */
 main {
   padding: 2rem;
   max-width: 1200px;
   margin: 100px auto;
-  background-color: #f4f4f4;
 }
 
 /* =========================================================
-   GENERAL SECTION STYLING
+   SECTIONS
    ========================================================= */
 section {
-  margin-bottom: 2rem;
-  background: #fff;
+  background: #FFF9F3; /* sand.DEFAULT */
   padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06); /* card shadow */
+  margin-bottom: 2rem;
 }
 
 section h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #007BFF;
+  color: #FF8C42; /* copper */
 }
 
 section p,
 section li {
   font-size: 1.1rem;
-  color: #555;
+  color: #404040; /* ink.700 */
 }
 
 ul, ol {
   padding-left: 1.5rem;
   margin-top: 1rem;
 }
-li {
-  margin-bottom: 0.5rem;
-}
 
 /* =========================================================
-   COVER IMAGES (Home Page)
+   COVER IMAGE
    ========================================================= */
-.cover {
-  text-align: center;
-  margin-top: 1.5rem;
-}
 .cover-image {
   width: 95%;
   max-width: 900px;
   border-radius: 14px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
 }
 
 /* =========================================================
-   FADE-IN SCROLL EFFECT
+   FADE-IN
    ========================================================= */
 .fade-in {
   opacity: 0;
@@ -151,107 +132,105 @@ li {
 }
 
 /* =========================================================
-   PRESENTATIONS / IFRAMES
+   DROPDOWNS (Reports, Labs)
+   ========================================================= */
+.dropdown-section { margin-bottom: 2rem; }
+
+.dropdown-toggle {
+  width: 100%;
+  font-size: 1.3rem;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: #FFF;
+  background: #FF8C42; /* copper */
+  transition: background 0.3s ease;
+}
+.dropdown-toggle:hover {
+  background: #D76B00; /* copper.dark */
+}
+
+.dropdown-content {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background: #FFF9F3; /* sand */
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+}
+
+.dropdown-subtext {
+  color: #6B6B6B; /* ink.500 */
+  margin-bottom: 1rem;
+}
+
+/* =========================================================
+   IFRAMES & PDFs
    ========================================================= */
 .iframe-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
+
 .presentation iframe,
-.dropdown-content iframe {
+.report-entry iframe,
+.pdf-item iframe {
   width: 100%;
   height: 650px;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
 }
 
 /* =========================================================
-   LABS & REPORTS DROPDOWNS
+   LABS PDF GRID
    ========================================================= */
-.dropdown-section {
-  margin-bottom: 2rem;
-}
-
-.dropdown-toggle {
-  width: 100%;
-  text-align: left;
-  padding: 1rem 1.25rem;
-  background: #007BFF;
-  color: #fff;
-  font-size: 1.3rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-.dropdown-toggle:hover {
-  background: #005FCC;
-}
-
-.dropdown-content {
-  margin-top: 1rem;
-  padding: 1.5rem;
-  border-radius: 8px;
-  background: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.dropdown-subtext {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  color: #666;
-}
-
-/* PDF grid (Labs) */
 .pdf-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
+
 .pdf-item {
-  background: #fff;
-  padding: 1rem 1.25rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  background: #FFF9F3; /* sand */
+  padding: 1.25rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
 }
 .pdf-item h3 {
-  margin-bottom: 0.75rem;
-  color: #007BFF;
-}
-.pdf-item iframe {
-  height: 700px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-}
-
-/* Placeholder Box */
-.placeholder-box {
-  padding: 2rem;
-  text-align: center;
-  background: #fafafa;
-  border: 2px dashed #bbb;
-  border-radius: 10px;
-  color: #777;
-  font-size: 1.15rem;
+  color: #FF8C42; /* copper */
+  margin-bottom: 1rem;
 }
 
 /* =========================================================
-   TEAM PAGE — UPDATED CARD SYSTEM
+   PLACEHOLDER BOX
+   ========================================================= */
+.placeholder-box {
+  text-align: center;
+  border: 2px dashed #E5E5E5; /* ink.200 */
+  background: #FFF5EC; /* sand.100 */
+  padding: 2rem;
+  border-radius: 14px;
+  color: #6B6B6B; /* ink.500 */
+  font-size: 1.1rem;
+}
+
+/* =========================================================
+   TEAM PAGE (Updated)
    ========================================================= */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4,1fr);
   gap: 2rem;
 }
 
-/* Flip Card */
+/* Team flip cards */
 .card {
   perspective: 1000px;
   cursor: pointer;
 }
 .card-inner {
-  width: 100%;
   height: 360px;
   position: relative;
   transition: transform 0.85s;
@@ -261,67 +240,51 @@ li {
   transform: rotateY(180deg);
 }
 
-/* Front & Back */
 .card-front,
 .card-back {
-  background: #fff;
-  padding: 1.5rem;
+  background: #FFF9F3; /* sand */
   border-radius: 14px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  position: absolute; inset: 0;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  text-align: center;
+  backface-visibility: hidden;
 }
 
 .card-back {
   transform: rotateY(180deg);
-  overflow-y: auto;
 }
 
 /* Headshots */
 .card-front img {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
+  border-radius: 999px;
   object-fit: cover;
   margin: 0 auto;
-  box-shadow: 0 0 0 4px #eee; /* removed blue ring */
 }
 
-/* Name & role alignment */
+/* Name & Role */
 .card-front h3,
 .card-back h3 {
-  margin: 0.5rem 0;
   font-size: 1.25rem;
+  margin-top: 0.75rem;
   font-weight: bold;
 }
 
-/* Role tag with color variations */
-.role-tag {
-  margin-bottom: 1rem;
-  font-weight: bold;
-  font-size: 0.95rem;
-}
+/* Role color classes */
+.role-dev { color: #FF8C42; }     /* copper */
+.role-db  { color: #15803D; }     /* forest */
+.role-ai  { color: #89CFF0; }     /* sky */
+.role-web { color: #D76B00; }     /* copper.dark */
+.role-mentor { color: #075985; }  /* sky.900 */
 
-/* Example role colors — assign appropriately */
-.role-dev { color: #007BFF; }
-.role-db  { color: #28A745; }
-.role-ai  { color: #6F42C1; }
-.role-web { color: #E83E8C; }
-.role-mentor { color: #FD7E14; }
-
-/* Back card text */
 .card-back p {
-  color: #444;
+  color: #404040; /* ink.700 */
   font-size: 0.95rem;
-  line-height: 1.45;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
 /* =========================================================
@@ -330,48 +293,30 @@ li {
 footer {
   text-align: center;
   padding: 1rem;
-  background-color: #fff;
-  border-top: 1px solid #ddd;
+  background: #FFF9F3; /* sand */
+  border-top: 1px solid #E5E5E5; /* ink.200 */
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 900;
+  bottom: 0; left: 0; right: 0;
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.04);
 }
 
 footer a {
-  color: #007BFF;
+  color: #FF8C42;
 }
 footer a:hover {
+  color: #D76B00;
   text-decoration: underline;
 }
 
 /* =========================================================
-   RESPONSIVE ADJUSTMENTS
+   RESPONSIVE
    ========================================================= */
 @media (max-width: 1100px) {
-  .team-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  .team-grid { grid-template-columns: repeat(3,1fr); }
 }
 @media (max-width: 900px) {
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .team-grid { grid-template-columns: repeat(2,1fr); }
 }
 @media (max-width: 600px) {
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-  .navbar {
-    flex-direction: column;
-    padding: 1rem;
-  }
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-  }
-  .nav-links li {
-    margin: 0.5rem 0;
-  }
+  .team-grid { grid-template-columns: 1fr; }
 }
