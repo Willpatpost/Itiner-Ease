@@ -6,19 +6,98 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO & Metadata -->
   <meta name="description" content="View team presentations for ItinerEase including design, feasibility, and prototype work.">
   <meta property="og:title" content="ItinerEase | Presentations">
   <meta property="og:description" content="Design, Feasibility, and Prototype Presentations for ItinerEase.">
   <meta property="og:url" content="https://willpatpost.github.io/Itiner-Ease/presentations.html">
-  <meta property="og:type" content="website" />
 
   <title>ItinerEase | Presentations</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Modal styling -->
+  <style>
+    .thumb-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .thumb-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .thumb-card:hover {
+      cursor: pointer;
+      transform: scale(1.03);
+    }
+
+    .thumb-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 0.8rem;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #28a745;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .download-btn:hover {
+      background: #218838;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.75);
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .modal-content {
+      width: 90%;
+      max-width: 900px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 1rem;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 2rem;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .modal iframe {
+      width: 100%;
+      height: 80vh;
+      border-radius: 6px;
+    }
+  </style>
 </head>
 
 <body class="presentations">
-  <!-- Skip link for accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <div id="header-placeholder"></div>
@@ -26,142 +105,110 @@
   <main id="main-content" class="content">
     <h1>Team Presentations</h1>
 
-    <!-- =======================================================
-         DESIGN PRESENTATIONS
-         ======================================================= -->
+    <!-- ========================= DESIGN ========================= -->
     <section class="dropdown-section">
-      <button class="dropdown-toggle" aria-expanded="false" aria-controls="design-presentations">
+      <button class="dropdown-toggle" aria-expanded="false" aria-controls="design-group">
         Design Presentations ▼
       </button>
 
-      <div id="design-presentations" class="dropdown-content" hidden>
-        <div class="iframe-grid">
+      <div id="design-group" class="dropdown-content" hidden>
+        <div class="thumb-grid">
 
           <!-- Design Final -->
-          <article class="presentation">
-            <h2>Design Final</h2>
-            <iframe 
-              src="https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/presentations/Design_Final_Team_Copper.pdf"
-              loading="lazy"></iframe>
-          </article>
+          <div class="thumb-card" onclick="openModal('designfinal.pdf')">
+            <img src="data/documents/presentations/thumbnails/designfinal.png" alt="Design Final Thumbnail">
+            <h3>Design Final</h3>
+            <a class="download-btn" href="data/documents/presentations/designfinal.pdf" download>Download PDF</a>
+          </div>
 
-          <!-- Design v3 -->
-          <article class="presentation">
-            <h2>Design v3</h2>
-            <iframe
-              src="https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/presentations/Design_Iteration_3_Team_Copper.pdf"
-              loading="lazy"></iframe>
-          </article>
+          <!-- Design 3 -->
+          <div class="thumb-card" onclick="openModal('design3.pdf')">
+            <img src="data/documents/presentations/thumbnails/design3.png" alt="Design v3 Thumbnail">
+            <h3>Design v3</h3>
+            <a class="download-btn" href="data/documents/presentations/design3.pdf" download>Download PDF</a>
+          </div>
 
-          <!-- Design v2 -->
-          <article class="presentation">
-            <h2>Design v2</h2>
-            <iframe
-              src="https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/presentations/Design_Iteration_2_Team_Copper.pdf"
-              loading="lazy"></iframe>
-          </article>
+          <!-- Design 2 -->
+          <div class="thumb-card" onclick="openModal('design2.pdf')">
+            <img src="data/documents/presentations/thumbnails/design2.png" alt="Design v2 Thumbnail">
+            <h3>Design v2</h3>
+            <a class="download-btn" href="data/documents/presentations/design2.pdf" download>Download PDF</a>
+          </div>
 
-          <!-- Design v1 -->
-          <article class="presentation">
-            <h2>Design v1</h2>
-            <iframe
-              src="https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/presentations/Design_Iteration_1_Team_Copper.pdf"
-              loading="lazy"></iframe>
-          </article>
+          <!-- Design 1 -->
+          <div class="thumb-card" onclick="openModal('design1.pdf')">
+            <img src="data/documents/presentations/thumbnails/design1.png" alt="Design v1 Thumbnail">
+            <h3>Design v1</h3>
+            <a class="download-btn" href="data/documents/presentations/design1.pdf" download>Download PDF</a>
+          </div>
 
         </div>
       </div>
     </section>
 
-    <!-- =======================================================
-         FEASIBILITY PRESENTATIONS
-         ======================================================= -->
+    <!-- ====================== FEASIBILITY ======================= -->
     <section class="dropdown-section">
-      <button class="dropdown-toggle" aria-expanded="false" aria-controls="feasibility-presentations">
+      <button class="dropdown-toggle" aria-expanded="false" aria-controls="feas-group">
         Feasibility Presentations ▼
       </button>
 
-      <div id="feasibility-presentations" class="dropdown-content" hidden>
-        <div class="iframe-grid">
+      <div id="feas-group" class="dropdown-content" hidden>
+        <div class="thumb-grid">
 
-          <!-- Feasibility Final -->
-          <article class="presentation">
-            <h2>Feasibility Final</h2>
-            <iframe 
-              src="https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/presentations/Revised_Final_Feasibility_Team_Copper.pdf"
-              loading="lazy"></iframe>
-          </article>
+          <div class="thumb-card" onclick="openModal('feasfinal.pdf')">
+            <img src="data/documents/presentations/thumbnails/feasfinal.png">
+            <h3>Feasibility Final</h3>
+            <a class="download-btn" href="data/documents/presentations/feasfinal.pdf" download>Download PDF</a>
+          </div>
 
-          <!-- Feasibility v4 -->
-          <article class="presentation">
-            <h2>Feasibility v4</h2>
-            <iframe 
-              src="https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/presentations/Final_Feasibility_Team_Copper.pdf"
-              loading="lazy"></iframe>
-          </article>
+          <div class="thumb-card" onclick="openModal('feas3.pdf')">
+            <img src="data/documents/presentations/thumbnails/feas3.png">
+            <h3>Feasibility v3</h3>
+            <a class="download-btn" href="data/documents/presentations/feas3.pdf" download>Download PDF</a>
+          </div>
 
-          <!-- Feasibility v3 -->
-          <article class="presentation">
-            <h2>Feasibility v3</h2>
-            <iframe 
-              src="https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/presentations/Feasibility3_Team_Copper.pdf"
-              loading="lazy"></iframe>
-          </article>
+          <div class="thumb-card" onclick="openModal('feas2.pdf')">
+            <img src="data/documents/presentations/thumbnails/feas2.png">
+            <h3>Feasibility v2</h3>
+            <a class="download-btn" href="data/documents/presentations/feas2.pdf" download>Download PDF</a>
+          </div>
 
-          <!-- Feasibility v2 -->
-          <article class="presentation">
-            <h2>Feasibility v2</h2>
-            <iframe 
-              src="https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/presentations/Feasibility2_Team_Copper.pdf"
-              loading="lazy"></iframe>
-          </article>
-
-          <!-- Feasibility v1 -->
-          <article class="presentation">
-            <h2>Feasibility v1</h2>
-            <iframe 
-              src="https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/presentations/Feasibility1_Team_Copper.pdf"
-              loading="lazy"></iframe>
-          </article>
+          <div class="thumb-card" onclick="openModal('feas1.pdf')">
+            <img src="data/documents/presentations/thumbnails/feas1.png">
+            <h3>Feasibility v1</h3>
+            <a class="download-btn" href="data/documents/presentations/feas1.pdf" download>Download PDF</a>
+          </div>
 
         </div>
       </div>
     </section>
 
-    <!-- =======================================================
-         PROTOTYPE PRESENTATIONS  (New Section)
-         ======================================================= -->
+    <!-- ====================== PROTOTYPES ======================== -->
     <section class="dropdown-section">
-      <button class="dropdown-toggle" aria-expanded="false" aria-controls="prototype-presentations">
+      <button class="dropdown-toggle" aria-expanded="false" aria-controls="proto-group">
         Prototype Presentations ▼
       </button>
 
-      <div id="prototype-presentations" class="dropdown-content" hidden>
-        <div class="iframe-grid">
+      <div id="proto-group" class="dropdown-content" hidden>
+        <div class="thumb-grid">
 
-          <!-- Prototype v1 -->
-          <article class="presentation">
-            <h2>Prototype – V1</h2>
-            <iframe 
-              src="https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/presentations/Prototype Team Copper.pdf"
-              loading="lazy"></iframe>
-          </article>
+          <div class="thumb-card" onclick="openModal('proto1.pdf')">
+            <img src="data/documents/presentations/thumbnails/proto1.png">
+            <h3>Prototype v1</h3>
+            <a class="download-btn" href="data/documents/presentations/proto1.pdf" download>Download PDF</a>
+          </div>
 
-          <!-- Demo 2 -->
-          <article class="presentation">
-            <h2>Prototype – Demo 2</h2>
-            <iframe 
-              src="https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/presentations/Demo 2 Prototype Team Copper.pdf"
-              loading="lazy"></iframe>
-          </article>
+          <div class="thumb-card" onclick="openModal('proto2.pdf')">
+            <img src="data/documents/presentations/thumbnails/proto2.png">
+            <h3>Prototype Demo 2</h3>
+            <a class="download-btn" href="data/documents/presentations/proto2.pdf" download>Download PDF</a>
+          </div>
 
-          <!-- Demo 3 -->
-          <article class="presentation">
-            <h2>Prototype – Demo 3</h2>
-            <iframe 
-              src="https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/presentations/Demo 3 Prototype Team Copper.pdf"
-              loading="lazy"></iframe>
-          </article>
+          <div class="thumb-card" onclick="openModal('proto3.pdf')">
+            <img src="data/documents/presentations/thumbnails/proto3.png">
+            <h3>Prototype Demo 3</h3>
+            <a class="download-btn" href="data/documents/presentations/proto3.pdf" download>Download PDF</a>
+          </div>
 
         </div>
       </div>
@@ -171,23 +218,39 @@
 
   <div id="footer-placeholder"></div>
 
+  <!-- =================== PRESENTATION MODAL =================== -->
+  <div id="presentationModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <iframe id="modalFrame" src=""></iframe>
+    </div>
+  </div>
+
   <script src="templateLoader.js"></script>
   <script src="anotherScript.js"></script>
 
-  <!-- Dropdown Toggle Logic -->
   <script>
-    document.querySelectorAll(".dropdown-toggle").forEach(button => {
-      button.addEventListener("click", () => {
-        const content = document.getElementById(button.getAttribute("aria-controls"));
-        const open = button.getAttribute("aria-expanded") === "true";
+    function openModal(fileName) {
+      const modal = document.getElementById("presentationModal");
+      const frame = document.getElementById("modalFrame");
+      frame.src = `https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/presentations/${fileName}`;
+      modal.style.display = "flex";
+    }
 
-        button.setAttribute("aria-expanded", !open);
+    function closeModal() {
+      const modal = document.getElementById("presentationModal");
+      const frame = document.getElementById("modalFrame");
+      frame.src = "";
+      modal.style.display = "none";
+    }
+
+    document.querySelectorAll(".dropdown-toggle").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const content = document.getElementById(btn.getAttribute("aria-controls"));
+        const open = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", !open);
         content.hidden = open;
-
-        button.textContent = button.textContent.replace(
-          open ? "▲" : "▼",
-          open ? "▼" : "▲"
-        );
+        btn.textContent = btn.textContent.replace(open ? "▲" : "▼", open ? "▼" : "▲");
       });
     });
   </script>
