@@ -3,67 +3,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <!-- SEO & Metadata -->
   <meta name="description" content="ItinerEase simplifies travel planning with personalized itineraries, dynamic updates, and local insights.">
   <meta property="og:title" content="ItinerEase | Home">
-  <meta property="og:description" content="Discover ItinerEase: Your personalized travel planner that simplifies itinerary creation with AI-driven insights.">
+  <meta property="og:description" content="Discover ItinerEase: Your personalized travel planner powered by intelligent insights.">
+  <meta property="og:url" content="https://willpatpost.github.io/Itiner-Ease/">
   <meta property="og:type" content="website">
   <title>ItinerEase | Home</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <!-- Small page-specific improvements -->
+  <style>
+    /* Fade-in sections */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Cover image */
+    .cover {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    .cover img {
+      max-width: 900px;
+      width: 95%;
+      border-radius: 14px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
+
+    section {
+      margin-top: 3rem;
+      padding: 1rem 0;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    .learn-more a {
+      color: #007BFF;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .learn-more a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
+
 <body class="home">
-  <!-- Skip link for accessibility -->
+
+  <!-- Accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  
-  <!-- Placeholder for the header -->
+
   <div id="header-placeholder"></div>
-  
-  <main id="main-content">
-    <!-- Cover Image -->
-    <section class="cover">
-      <img src="data/images/deliverables/ItinerEase Cover.png" alt="ItinerEase Cover" class="cover-image">
+
+  <main id="main-content" class="content">
+
+    <!-- Cover -->
+    <section class="cover fade-in">
+      <img src="data/images/logos/home.png" alt="ItinerEase Home Cover">
     </section>
-    
+
     <!-- Problem Description -->
-    <section class="problem-description">
+    <section class="problem-description fade-in">
       <h2>Problem Description</h2>
       <p>
-        Traditional travel planning is overwhelming and impersonal. With countless options and generic itineraries, travelers often face decision fatigue, inefficient planning processes, and a lack of local insights. Group travel adds another layer of complexity, leading to conflicts and suboptimal experiences.
+        Traditional travel planning is overwhelming and impersonal. With countless options and generic itineraries, travelers often face decision fatigue, inefficient planning processes, and a lack of local insights.
       </p>
-      <p class="learn-more"><a href="problem.html">Learn more</a></p>
+      <p>
+        Group travel adds even more complexity, leading to conflicting preferences and suboptimal experiences.
+      </p>
+      <p class="learn-more">
+        <a href="problem.html">Learn more</a>
+      </p>
     </section>
-    
-    <!-- Our Solution (Elevator Pitch & Solution Statement Combined) -->
-    <section class="our-solution">
+
+    <!-- Our Solution -->
+    <section class="our-solution fade-in">
       <h2>Our Solution</h2>
       <p>
-        ItinerEase is an innovative mobile application that transforms the way you plan your trips. By leveraging AI-driven recommendations and user-generated insights, we create personalized itineraries that cut through the noise and save you time.
+        ItinerEase is an innovative mobile application that transforms the way you plan trips. By combining AI-driven recommendations with local insights, we help travelers cut through the noise and build customized itineraries with ease.
       </p>
       <p>
-        Our app delivers a dynamic and tailored travel planning experience by combining user preferences with local expert insights. The result is a flexible, adaptive itinerary that evolves with your journey—ensuring every trip is perfectly suited to your lifestyle.
+        Our app adapts to user preferences, group dynamics, and real-time travel conditions — delivering flexible, dynamic itineraries that evolve with your journey.
       </p>
-      <p class="learn-more"><a href="solution.html">Learn more</a></p>
+      <p class="learn-more">
+        <a href="solution.html">Learn more</a>
+      </p>
     </section>
-    
-    <!-- Customer and End User -->
-    <section class="customer-end-user">
+
+    <!-- Customers & End Users -->
+    <section class="customer-end-user fade-in">
       <h2>Customer &amp; End User</h2>
       <p>
-        <strong>End Users:</strong> Solo travelers, families, friend groups, frequent adventurers, and anyone seeking personalized travel experiences.
+        <strong>End Users:</strong> Solo travelers, families, groups of friends, adventure seekers, and anyone who wants a personalized, hassle-free travel planning experience.
       </p>
       <p>
-        <strong>Customers:</strong> Local tour providers, restaurants, attractions, and other businesses looking to reach travelers with personalized recommendations.
+        <strong>Customers:</strong> Local businesses, tourism organizations, restaurants, and activity providers seeking to reach travelers through personalized recommendations.
       </p>
     </section>
+
   </main>
-  
-  <!-- Placeholder for the footer -->
+
   <div id="footer-placeholder"></div>
-  
-  <!-- JS files -->
+
   <script src="templateLoader.js"></script>
   <script src="anotherScript.js"></script>
+
+  <!-- Fade-in Scroll Animation -->
+  <script>
+    const fadeEls = document.querySelectorAll(".fade-in");
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add("visible");
+        });
+      },
+      { threshold: 0.2 }
+    );
+    fadeEls.forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>
