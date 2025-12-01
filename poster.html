@@ -21,39 +21,49 @@
 
 <body class="poster">
 
-  <!-- Accessibility: Skip to main -->
+  <!-- Accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Header placeholder for JS injection -->
+  <!-- Header placeholder -->
   <div id="header-placeholder"></div>
 
   <main id="main-content">
-    <h1 class="mt-2">Project Poster</h1>
+    <h1 class="mt-2 fade-in">Project Poster</h1>
 
     <section class="fade-in">
       <p class="mt-2" style="max-width: 800px; margin: 0 auto;">
-        Our team created a comprehensive poster that highlights the key components of 
-        <strong>ItinerEase</strong>. The poster showcases our mission, system design, 
+        Our team created a comprehensive poster that highlights the key components of
+        <strong>ItinerEase</strong>. The poster showcases our mission, system design,
         workflow diagrams, early prototypes, and core deliverables in a visually clear format.
       </p>
 
       <div class="text-center mt-4">
-        <img 
-          src="data/images/deliverables/poster.png" 
+        <img
+          src="data/images/deliverables/poster.png"
           alt="High-level ItinerEase project poster including system design, workflows, and prototype visuals"
           class="img-responsive"
           loading="lazy"
         >
       </div>
     </section>
-
   </main>
 
-  <!-- Footer template injection -->
+  <!-- Footer placeholder -->
   <div id="footer-placeholder"></div>
 
   <script src="templateLoader.js"></script>
   <script src="anotherScript.js"></script>
+
+  <!-- Fade-in Animation -->
+  <script>
+    const fadeEls = document.querySelectorAll(".fade-in");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.2 });
+    fadeEls.forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>

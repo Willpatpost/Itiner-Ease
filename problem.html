@@ -5,48 +5,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- SEO & Metadata -->
   <meta name="description" content="Explore the challenges faced by travelers and how ItinerEase addresses them.">
   <meta property="og:title" content="ItinerEase | Problem">
   <meta property="og:description" content="Challenges in travel planning and group coordination.">
   <meta property="og:url" content="https://yourdomain.com/problem.html">
   <meta property="og:type" content="website">
+
   <title>ItinerEase | Problem</title>
+
+  <!-- Global CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="problem">
+
   <!-- Skip link for accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  
+
+  <!-- Header template loader -->
   <div id="header-placeholder"></div>
-  
+
   <main id="main-content">
-    <h1>Problem</h1>
-    <section class="problem-statement">
+
+    <h1 class="fade-in">Problem</h1>
+
+    <!-- Problem Statement -->
+    <section class="problem-statement fade-in">
       <h2>Problem Statement</h2>
       <p>
-        When travelers plan their own trips, all the time, effort, and stress- compounded further by the constraints of group travel- can sour the experience. 
-        While the time and effort can be cut down with travel agents and tour guides, they lack the personalized touch of planning for yourself and your needs. 
-        76% of travelers turn to planning applications and websites to make the experience easier, but they only provide generic itineraries that lack personalization and flexibility. 
-        These leave out the hidden gems that make a trip memorable and also adapt poorly to unforeseen complications. 
-        Travelers are left with having to choose between having an expensive or time-consuming planning stage, or they settle for a trip that is just not the experience they were hoping for.
+        When travelers plan their own trips, all the time, effort, and stress—compounded further by the 
+        constraints of group travel—can sour the experience. While the time and effort can be cut down with 
+        travel agents and tour guides, they lack the personalized touch of planning for yourself and your needs.
+      </p>
+      <p>
+        76% of travelers turn to planning applications and websites to make the experience easier, but they 
+        only provide generic itineraries that lack personalization and flexibility. These leave out the hidden 
+        gems that make a trip memorable and adapt poorly to unforeseen complications.
+      </p>
+      <p>
+        Travelers are left choosing between an expensive or time-consuming planning stage, or settling for a trip 
+        that simply isn’t the experience they were hoping for.
       </p>
     </section>
-    <section class="problem-characteristics">
+
+    <!-- Key Challenges -->
+    <section class="problem-characteristics fade-in">
       <h2>Key Challenges</h2>
       <ul>
         <li><strong>Choice Overload:</strong> Too many options can lead to decision fatigue.</li>
         <li><strong>Generic Itineraries:</strong> Lack of personalization results in missed local experiences.</li>
         <li><strong>Inflexible Plans:</strong> Rigid itineraries do not accommodate spontaneous changes.</li>
-        <li><strong>Group Coordination:</strong> Difficulty in harmonizing the preferences of multiple travelers.</li>
+        <li><strong>Group Coordination:</strong> Difficulty aligning the preferences of multiple travelers.</li>
       </ul>
     </section>
+
   </main>
-  
+
+  <!-- Footer template loader -->
   <div id="footer-placeholder"></div>
-  
+
+  <!-- Scripts -->
   <script src="templateLoader.js"></script>
   <script src="anotherScript.js"></script>
-  
+
+  <!-- Fade-in Intersection Observer -->
+  <script>
+    const fadeEls = document.querySelectorAll(".fade-in");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.2 });
+    fadeEls.forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>

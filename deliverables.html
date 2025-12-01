@@ -9,55 +9,120 @@
   <meta name="description" content="View ItinerEase project deliverables including process flows, MFCD, competition matrix, and risk matrices.">
   <meta property="og:title" content="ItinerEase | Deliverables">
   <meta property="og:description" content="View ItinerEase project deliverables.">
+  <meta property="og:type" content="website">
   <title>ItinerEase | Deliverables</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="Deliverables">
+
+<body class="deliverables">
   <!-- Skip link for accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  
-  <!-- Placeholder for the header -->
+
+  <!-- Header placeholder -->
   <div id="header-placeholder"></div>
-  
+
   <main id="main-content">
-    <h1>Deliverables</h1>
-    <p>Below are ItinerEase's Deliverables:</p>
-    <section class="iframe-grid">
-      <article class="presentation">
+    <h1 class="fade-in">Deliverables</h1>
+    <p class="mt-1 fade-in">Below are ItinerEase's Deliverables:</p>
+
+    <!-- Use the simple one-column grid; each article is a card -->
+    <section class="pdf-grid fade-in">
+
+      <article class="presentation fade-in">
         <h2>Process Flows</h2>
-        <h3>Current Process Flow</h3>
-        <img class="deliverable-img" loading="lazy" src="data/images/deliverables/Current Process Flow.png" alt="Current Process Flow">
-        <h3>Solution Process Flow</h3>
-        <img class="deliverable-img" loading="lazy" src="data/images/deliverables/Solution Process Flow.png" alt="Solution Process Flow">
+
+        <h3 class="mt-2">Current Process Flow</h3>
+        <img
+          class="img-responsive"
+          loading="lazy"
+          src="data/images/deliverables/Current Process Flow.png"
+          alt="Current Process Flow"
+        >
+
+        <h3 class="mt-3">Solution Process Flow</h3>
+        <img
+          class="img-responsive"
+          loading="lazy"
+          src="data/images/deliverables/Solution Process Flow.png"
+          alt="Solution Process Flow"
+        >
       </article>
-      <article class="presentation">
+
+      <article class="presentation fade-in">
         <h2>MFCD</h2>
-        <img class="deliverable-img" loading="lazy" src="data/images/deliverables/MFCD.png" alt="MFCD">
+        <img
+          class="img-responsive mt-2"
+          loading="lazy"
+          src="data/images/deliverables/MFCD.png"
+          alt="MFCD"
+        >
       </article>
-      <article class="presentation">
+
+      <article class="presentation fade-in">
         <h2>Competition Matrix</h2>
-        <img class="deliverable-img" loading="lazy" src="data/images/deliverables/ItinerEase Competition Matrix.png" alt="Competition Matrix">
+        <img
+          class="img-responsive mt-2"
+          loading="lazy"
+          src="data/images/deliverables/ItinerEase Competition Matrix.png"
+          alt="Competition Matrix"
+        >
       </article>
-      <article class="presentation">
+
+      <article class="presentation fade-in">
         <h2>Risk Matrices</h2>
-        <h3>User Risk Matrix</h3>
-        <img class="deliverable-img" loading="lazy" src="data/images/deliverables/User Risk Matrix.png" alt="User Risk Matrix">
-        <h3>Customer Risk Matrix</h3>
-        <img class="deliverable-img" loading="lazy" src="data/images/deliverables/Customer Risk Matrix.png" alt="Customer Risk Matrix">
-        <h3>Technical Risk Matrix</h3>
-        <img class="deliverable-img" loading="lazy" src="data/images/deliverables/Technical Risk Matrix.png" alt="Technical Risk Matrix">
-        <h3>Legal and Security Risk Matrix</h3>
-        <img class="deliverable-img" loading="lazy" src="data/images/deliverables/Legal and Security Risk Matrix.png" alt="Legal and Security Risk Matrix">
+
+        <h3 class="mt-2">User Risk Matrix</h3>
+        <img
+          class="img-responsive"
+          loading="lazy"
+          src="data/images/deliverables/User Risk Matrix.png"
+          alt="User Risk Matrix"
+        >
+
+        <h3 class="mt-3">Customer Risk Matrix</h3>
+        <img
+          class="img-responsive"
+          loading="lazy"
+          src="data/images/deliverables/Customer Risk Matrix.png"
+          alt="Customer Risk Matrix"
+        >
+
+        <h3 class="mt-3">Technical Risk Matrix</h3>
+        <img
+          class="img-responsive"
+          loading="lazy"
+          src="data/images/deliverables/Technical Risk Matrix.png"
+          alt="Technical Risk Matrix"
+        >
+
+        <h3 class="mt-3">Legal and Security Risk Matrix</h3>
+        <img
+          class="img-responsive"
+          loading="lazy"
+          src="data/images/deliverables/Legal and Security Risk Matrix.png"
+          alt="Legal and Security Risk Matrix"
+        >
       </article>
+
     </section>
   </main>
-  
-  <!-- Placeholder for the footer -->
+
+  <!-- Footer placeholder -->
   <div id="footer-placeholder"></div>
-  
-  <!-- JS files -->
+
+  <!-- JS -->
   <script src="templateLoader.js"></script>
   <script src="anotherScript.js"></script>
-  
+
+  <!-- Global fade-in (works with any element that has .fade-in) -->
+  <script>
+    const fadeEls = document.querySelectorAll(".fade-in");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.15 });
+    fadeEls.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>

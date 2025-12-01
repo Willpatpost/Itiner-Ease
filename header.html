@@ -1,6 +1,6 @@
 <!-- header.html -->
 
-<header class="site-header">
+<header class="site-header fade-in">
   <div class="navbar">
 
     <!-- Logo -->
@@ -12,8 +12,13 @@
       >
     </a>
 
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+      ☰
+    </button>
+
     <!-- Navigation -->
-    <nav>
+    <nav class="nav-menu">
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="problem.html">Problem</a></li>
@@ -31,4 +36,16 @@
     </nav>
 
   </div>
+
+  <!-- Mobile script (kept lightweight) -->
+  <script>
+    const toggleBtn = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector(".nav-menu");
+
+    toggleBtn.addEventListener("click", () => {
+      const open = toggleBtn.getAttribute("aria-expanded") === "true";
+      toggleBtn.setAttribute("aria-expanded", !open);
+      navMenu.classList.toggle("open");
+    });
+  </script>
 </header>

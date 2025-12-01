@@ -6,136 +6,72 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- SEO -->
   <meta name="description" content="View team presentations for ItinerEase including design, feasibility, and prototype work.">
   <meta property="og:title" content="ItinerEase | Presentations">
   <meta property="og:description" content="Design, Feasibility, and Prototype Presentations for ItinerEase.">
   <meta property="og:url" content="https://willpatpost.github.io/Itiner-Ease/presentations.html">
+  <meta property="og:type" content="website">
 
   <title>ItinerEase | Presentations</title>
 
-  <!-- Global Styles -->
+  <!-- Global CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="presentations">
 
   <a href="#main-content" class="skip-link">Skip to main content</a>
-
   <div id="header-placeholder"></div>
 
   <main id="main-content">
-    <h1>Team Presentations</h1>
 
-    <!-- ========================= DESIGN ========================= -->
+    <h1 class="fade-in">Team Presentations</h1>
+
+    <!-- ============ DESIGN PRESENTATIONS ============ -->
     <section class="dropdown-section fade-in">
-      <button class="dropdown-toggle" aria-expanded="false" aria-controls="design-group">
+      <button class="dropdown-toggle" aria-expanded="false" aria-controls="design-list">
         Design Presentations ▼
       </button>
 
-      <div id="design-group" class="dropdown-content" hidden>
-        <div class="thumb-grid">
-
-          <div class="thumb-card" onclick="openModal('designfinal.pdf')">
-            <img src="data/documents/presentations/thumbnails/designfinal.png" alt="Design Final Thumbnail">
-            <h3>Design Final</h3>
-            <a class="download-btn" href="data/documents/presentations/designfinal.pdf" download>
-              Download PDF
-            </a>
-          </div>
-
-          <div class="thumb-card" onclick="openModal('design3.pdf')">
-            <img src="data/documents/presentations/thumbnails/design3.png" alt="Design v3 Thumbnail">
-            <h3>Design v3</h3>
-            <a class="download-btn" href="data/documents/presentations/design3.pdf" download>
-              Download PDF
-            </a>
-          </div>
-
-          <div class="thumb-card" onclick="openModal('design2.pdf')">
-            <img src="data/documents/presentations/thumbnails/design2.png" alt="Design v2 Thumbnail">
-            <h3>Design v2</h3>
-            <a class="download-btn" href="data/documents/presentations/design2.pdf" download>
-              Download PDF
-            </a>
-          </div>
-
-          <div class="thumb-card" onclick="openModal('design1.pdf')">
-            <img src="data/documents/presentations/thumbnails/design1.png" alt="Design v1 Thumbnail">
-            <h3>Design v1</h3>
-            <a class="download-btn" href="data/documents/presentations/design1.pdf" download>
-              Download PDF
-            </a>
-          </div>
-
-        </div>
+      <div id="design-list" class="dropdown-content" hidden>
+        <ul class="presentation-list">
+          <li><a href="data/documents/presentations/designfinal.pdf" target="_blank">Design Final</a></li>
+          <li><a href="data/documents/presentations/design3.pdf" target="_blank">Design v3</a></li>
+          <li><a href="data/documents/presentations/design2.pdf" target="_blank">Design v2</a></li>
+          <li><a href="data/documents/presentations/design1.pdf" target="_blank">Design v1</a></li>
+        </ul>
       </div>
     </section>
 
-    <!-- ====================== FEASIBILITY ======================= -->
+    <!-- ============ FEASIBILITY PRESENTATIONS ============ -->
     <section class="dropdown-section fade-in">
-      <button class="dropdown-toggle" aria-expanded="false" aria-controls="feas-group">
+      <button class="dropdown-toggle" aria-expanded="false" aria-controls="feas-list">
         Feasibility Presentations ▼
       </button>
 
-      <div id="feas-group" class="dropdown-content" hidden>
-        <div class="thumb-grid">
-
-          <div class="thumb-card" onclick="openModal('feasfinal.pdf')">
-            <img src="data/documents/presentations/thumbnails/feasfinal.png" alt="Feasibility Final Thumbnail">
-            <h3>Feasibility Final</h3>
-            <a class="download-btn" href="data/documents/presentations/feasfinal.pdf" download>Download PDF</a>
-          </div>
-
-          <div class="thumb-card" onclick="openModal('feas3.pdf')">
-            <img src="data/documents/presentations/thumbnails/feas3.png" alt="Feasibility v3 Thumbnail">
-            <h3>Feasibility v3</h3>
-            <a class="download-btn" href="data/documents/presentations/feas3.pdf" download>Download PDF</a>
-          </div>
-
-          <div class="thumb-card" onclick="openModal('feas2.pdf')">
-            <img src="data/documents/presentations/thumbnails/feas2.png" alt="Feasibility v2 Thumbnail">
-            <h3>Feasibility v2</h3>
-            <a class="download-btn" href="data/documents/presentations/feas2.pdf" download>Download PDF</a>
-          </div>
-
-          <div class="thumb-card" onclick="openModal('feas1.pdf')">
-            <img src="data/documents/presentations/thumbnails/feas1.png" alt="Feasibility v1 Thumbnail">
-            <h3>Feasibility v1</h3>
-            <a class="download-btn" href="data/documents/presentations/feas1.pdf" download>Download PDF</a>
-          </div>
-
-        </div>
+      <div id="feas-list" class="dropdown-content" hidden>
+        <ul class="presentation-list">
+          <li><a href="data/documents/presentations/feasfinal.pdf" target="_blank">Feasibility Final</a></li>
+          <li><a href="data/documents/presentations/feas3.pdf" target="_blank">Feasibility v3</a></li>
+          <li><a href="data/documents/presentations/feas2.pdf" target="_blank">Feasibility v2</a></li>
+          <li><a href="data/documents/presentations/feas1.pdf" target="_blank">Feasibility v1</a></li>
+        </ul>
       </div>
     </section>
 
-    <!-- ====================== PROTOTYPES ======================== -->
+    <!-- ============ PROTOTYPE PRESENTATIONS ============ -->
     <section class="dropdown-section fade-in">
-      <button class="dropdown-toggle" aria-expanded="false" aria-controls="proto-group">
+      <button class="dropdown-toggle" aria-expanded="false" aria-controls="proto-list">
         Prototype Presentations ▼
       </button>
 
-      <div id="proto-group" class="dropdown-content" hidden>
-        <div class="thumb-grid">
-
-          <div class="thumb-card" onclick="openModal('proto1.pdf')">
-            <img src="data/documents/presentations/thumbnails/proto1.png" alt="Prototype v1 Thumbnail">
-            <h3>Prototype v1</h3>
-            <a class="download-btn" href="data/documents/presentations/proto1.pdf" download>Download PDF</a>
-          </div>
-
-          <div class="thumb-card" onclick="openModal('proto2.pdf')">
-            <img src="data/documents/presentations/thumbnails/proto2.png" alt="Prototype Demo 2 Thumbnail">
-            <h3>Prototype Demo 2</h3>
-            <a class="download-btn" href="data/documents/presentations/proto2.pdf" download>Download PDF</a>
-          </div>
-
-          <div class="thumb-card" onclick="openModal('proto3.pdf')">
-            <img src="data/documents/presentations/thumbnails/proto3.png" alt="Prototype Demo 3 Thumbnail">
-            <h3>Prototype Demo 3</h3>
-            <a class="download-btn" href="data/documents/presentations/proto3.pdf" download>Download PDF</a>
-          </div>
-
-        </div>
+      <div id="proto-list" class="dropdown-content" hidden>
+        <ul class="presentation-list">
+          <li><a href="data/documents/presentations/proto1.pdf" target="_blank">Prototype v1</a></li>
+          <li><a href="data/documents/presentations/proto2.pdf" target="_blank">Prototype Demo 2</a></li>
+          <li><a href="data/documents/presentations/proto3.pdf" target="_blank">Prototype Demo 3</a></li>
+        </ul>
       </div>
     </section>
 
@@ -143,45 +79,25 @@
 
   <div id="footer-placeholder"></div>
 
-  <!-- =================== PRESENTATION MODAL =================== -->
-  <div id="presentationModal" class="presentation-modal">
-    <div class="modal-content">
-      <span class="close-modal" onclick="closeModal()">&times;</span>
-      <iframe id="modalFrame" src=""></iframe>
-    </div>
-  </div>
-
+  <!-- JS -->
   <script src="templateLoader.js"></script>
   <script src="anotherScript.js"></script>
 
   <script>
-    /* ----- Modal Logic ----- */
-    function openModal(fileName) {
-      const modal = document.getElementById("presentationModal");
-      const frame = document.getElementById("modalFrame");
-
-      frame.src = `https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/presentations/${fileName}`;
-      modal.style.display = "flex";
-    }
-
-    function closeModal() {
-      const modal = document.getElementById("presentationModal");
-      const frame = document.getElementById("modalFrame");
-
-      frame.src = "";
-      modal.style.display = "none";
-    }
-
-    /* ----- Dropdown Toggle Logic ----- */
+    /* Dropdown toggle logic */
     document.querySelectorAll(".dropdown-toggle").forEach(btn => {
       btn.addEventListener("click", () => {
-        const section = document.getElementById(btn.getAttribute("aria-controls"));
-        const open = btn.getAttribute("aria-expanded") === "true";
+        const target = document.getElementById(btn.getAttribute("aria-controls"));
+        const isOpen = btn.getAttribute("aria-expanded") === "true";
+        
+        btn.setAttribute("aria-expanded", !isOpen);
+        target.hidden = isOpen;
 
-        btn.setAttribute("aria-expanded", !open);
-        section.hidden = open;
-
-        btn.textContent = btn.textContent.replace(open ? "▲" : "▼", open ? "▼" : "▲");
+        // swap arrow label
+        btn.textContent = btn.textContent.replace(
+          isOpen ? "▲" : "▼",
+          isOpen ? "▼" : "▲"
+        );
       });
     });
   </script>

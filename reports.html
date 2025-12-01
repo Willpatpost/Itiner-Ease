@@ -21,13 +21,15 @@
 
 <body class="reports">
 
+  <!-- Skip link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <div id="header-placeholder"></div>
 
   <main id="main-content">
-    <h1>Weekly Reports</h1>
-    <p class="mt-1">
+
+    <h1 class="fade-in">Weekly Reports</h1>
+    <p class="mt-1 fade-in">
       Below are the weekly progress reports for the ItinerEase team. Click any week to expand and view its report.
     </p>
 
@@ -145,11 +147,9 @@
         const content = document.getElementById(button.getAttribute("aria-controls"));
         const isOpen = button.getAttribute("aria-expanded") === "true";
 
-        // Update expanded state
         button.setAttribute("aria-expanded", !isOpen);
         content.hidden = isOpen;
 
-        // Swap arrow without replacing the entire text
         button.textContent = button.textContent.replace(
           isOpen ? "▲" : "▼",
           isOpen ? "▼" : "▲"

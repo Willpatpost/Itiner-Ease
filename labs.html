@@ -14,51 +14,57 @@
   <meta property="og:type" content="website" />
 
   <title>ItinerEase | Labs</title>
+
+  <!-- Global Styling -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body class="labs">
-  <!-- Skip link for accessibility -->
+
+  <!-- Accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <div id="header-placeholder"></div>
 
-  <main id="main-content" class="content">
-    <h1>Team Lab Work</h1>
+  <main id="main-content">
 
-    <!-- ===== DROPDOWN: INDIVIDUAL LABS ===== -->
-    <section class="dropdown-section">
+    <h1 class="fade-in">Team Lab Work</h1>
+
+    <!-- =========================================================
+         INDIVIDUAL LABS
+         ========================================================= -->
+    <section class="dropdown-section fade-in">
       <button class="dropdown-toggle" aria-expanded="false" aria-controls="individual-labs">
         Individual Labs ▼
       </button>
 
       <div id="individual-labs" class="dropdown-content" hidden>
-        <p class="dropdown-subtext">Click a lab to view the embedded PDF.</p>
+        <p class="dropdown-subtext fade-in">Click a lab to view the embedded PDF.</p>
 
         <div class="pdf-grid">
 
-          <article class="pdf-item">
+          <article class="pdf-item fade-in">
             <h3>Crystal Rivas – Lab 2</h3>
             <iframe
               src="https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/labs/individual/crystallab2.pdf"
               title="Crystal Lab 2 PDF"></iframe>
           </article>
 
-          <article class="pdf-item">
+          <article class="pdf-item fade-in">
             <h3>Stephen Usselman – Lab 2</h3>
             <iframe
               src="https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/labs/individual/stephenlab2.pdf"
               title="Stephen Lab 2 PDF"></iframe>
           </article>
 
-          <article class="pdf-item">
+          <article class="pdf-item fade-in">
             <h3>William Mbandi – Lab 2</h3>
             <iframe
               src="https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/labs/individual/willmlab2.pdf"
               title="William Mbandi Lab 2 PDF"></iframe>
           </article>
 
-          <article class="pdf-item">
+          <article class="pdf-item fade-in">
             <h3>William Poston – Lab 2</h3>
             <iframe
               src="https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/labs/individual/willplab2.pdf"
@@ -69,18 +75,20 @@
       </div>
     </section>
 
-    <!-- ===== DROPDOWN: GROUP LABS ===== -->
-    <section class="dropdown-section">
+    <!-- =========================================================
+         GROUP LABS
+         ========================================================= -->
+    <section class="dropdown-section fade-in">
       <button class="dropdown-toggle" aria-expanded="false" aria-controls="group-labs">
         Group Labs ▼
       </button>
 
       <div id="group-labs" class="dropdown-content" hidden>
-        <p class="dropdown-subtext">Click to view the embedded PDF.</p>
+        <p class="dropdown-subtext fade-in">Click to view the embedded PDF.</p>
 
         <div class="pdf-grid">
 
-          <article class="pdf-item">
+          <article class="pdf-item fade-in">
             <h3>Group Lab 2</h3>
             <iframe
               src="https://docs.google.com/gview?embedded=true&url=https://willpatpost.github.io/Itiner-Ease/data/documents/labs/group/grouplab2.pdf"
@@ -90,31 +98,47 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <div id="footer-placeholder"></div>
 
-  <!-- Template loader scripts -->
+  <!-- Template Loader -->
   <script src="templateLoader.js"></script>
   <script src="anotherScript.js"></script>
 
-  <!-- ===== Dropdown Script ===== -->
+  <!-- Dropdown Logic -->
   <script>
     document.querySelectorAll(".dropdown-toggle").forEach(button => {
       button.addEventListener("click", () => {
-        const contentId = button.getAttribute("aria-controls");
-        const content = document.getElementById(contentId);
-
+        const content = document.getElementById(button.getAttribute("aria-controls"));
         const isOpen = button.getAttribute("aria-expanded") === "true";
+
         button.setAttribute("aria-expanded", !isOpen);
         content.hidden = isOpen;
 
+        // Flip arrow
         button.textContent = button.textContent.replace(
           isOpen ? "▲" : "▼",
           isOpen ? "▼" : "▲"
         );
       });
     });
+  </script>
+
+  <!-- Fade-in Animation -->
+  <script>
+    const fadeEls = document.querySelectorAll(".fade-in");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    fadeEls.forEach(el => observer.observe(el));
   </script>
 
 </body>
