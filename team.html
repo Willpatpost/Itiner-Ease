@@ -275,20 +275,6 @@
 
   <!-- Script -->
   <script src="/Itiner-Ease/main.js"></script>
-  <script>
-    function initCardFlips() {
-      document.querySelectorAll(".card").forEach(card => {
-        card.addEventListener("click", () => {
-          card.classList.toggle("flipped");
-        });
-      });
-    }
-
-    // Run after header/footer load (main.js loads them asynchronously)
-    document.addEventListener("DOMContentLoaded", () => {
-      setTimeout(initCardFlips, 200); // small delay guarantees elements exist
-    });
-  </script>
 
 </body>
 </html>
