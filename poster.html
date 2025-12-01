@@ -1,4 +1,4 @@
-  <!-- poster.html -->
+<!-- poster.html -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,61 +14,42 @@
   <meta property="og:type" content="website">
 
   <title>ItinerEase | Project Poster</title>
+
+  <!-- Global site stylesheet -->
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    .poster-section {
-      background: #fff;
-      padding: 2rem;
-      margin-top: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    .poster-section p {
-      font-size: 1.1rem;
-      color: #444;
-      max-width: 800px;
-      margin: 0 auto 1.75rem;
-      line-height: 1.6;
-    }
-
-    .poster-img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-    }
-  </style>
 </head>
 
 <body class="poster">
 
+  <!-- Accessibility: Skip to main -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- Header placeholder for JS injection -->
   <div id="header-placeholder"></div>
 
-  <main id="main-content" class="content">
+  <main id="main-content">
+    <h1 class="mt-2">Project Poster</h1>
 
-    <h1>Project Poster</h1>
-
-    <section class="poster-section">
-      <p>
-        Our team created a comprehensive poster that highlights the key components of <strong>ItinerEase</strong>.
-        The poster includes our mission, system design, workflows, and even prototype screenshots.
+    <section class="fade-in">
+      <p class="mt-2" style="max-width: 800px; margin: 0 auto;">
+        Our team created a comprehensive poster that highlights the key components of 
+        <strong>ItinerEase</strong>. The poster showcases our mission, system design, 
+        workflow diagrams, early prototypes, and core deliverables in a visually clear format.
       </p>
 
-      <img 
-        src="data/images/deliverables/poster.png" 
-        alt="ItinerEase Project Poster"
-        class="poster-img"
-        loading="lazy"
-      />
+      <div class="text-center mt-4">
+        <img 
+          src="data/images/deliverables/poster.png" 
+          alt="High-level ItinerEase project poster including system design, workflows, and prototype visuals"
+          class="img-responsive"
+          loading="lazy"
+        >
+      </div>
     </section>
 
   </main>
 
+  <!-- Footer template injection -->
   <div id="footer-placeholder"></div>
 
   <script src="templateLoader.js"></script>

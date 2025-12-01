@@ -16,12 +16,30 @@ body {
   color: #1A1A1A; /* ink.900 */
 }
 
+/* =========================================================
+   UTILITY SPACING & HELPERS
+   ========================================================= */
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.mt-5 { margin-top: 3rem; }
+
+.text-center { text-align: center; }
+
+.img-responsive {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
 /* Skip Link */
 .skip-link {
   position: absolute;
   top: -40px;
   left: 0;
-  background: #FF8C42; /* copper */
+  background: #FF8C42;
   color: #FFF;
   padding: 8px;
   z-index: 100;
@@ -33,18 +51,20 @@ body {
    HEADER / NAVBAR
    ========================================================= */
 .navbar {
-  background-color: #FFF9F3; /* sand */
+  background-color: #FFF9F3;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 2rem;
-  border-bottom: 1px solid #E5E5E5; /* ink.200 */
-  position: fixed; top: 0; left: 0; right: 0;
+  border-bottom: 1px solid #E5E5E5;
+  position: fixed;
+  top: 0; left: 0; right: 0;
   z-index: 1000;
   box-shadow: 0 4px 16px rgba(0,0,0,0.04);
 }
 
 .logo-link { display: flex; align-items: center; }
+
 .logo-img {
   height: 48px;
   width: auto;
@@ -52,27 +72,24 @@ body {
 }
 .logo-link:hover .logo-img { opacity: 0.85; }
 
-/* Nav links */
 .nav-links {
   list-style: none;
   display: flex;
 }
-.nav-links li {
-  margin-left: 1.5rem;
-}
+.nav-links li { margin-left: 1.5rem; }
 .nav-links a {
   text-decoration: none;
-  color: #1A1A1A; /* ink.900 */
+  color: #1A1A1A;
   font-size: 1rem;
   transition: color 0.3s ease;
 }
 .nav-links a:hover,
 .nav-links a.active {
-  color: #D76B00; /* copper.dark */
+  color: #D76B00;
 }
 
 /* =========================================================
-   MAIN CONTENT
+   MAIN CONTENT WRAPPER
    ========================================================= */
 main {
   padding: 2rem;
@@ -81,26 +98,26 @@ main {
 }
 
 /* =========================================================
-   SECTIONS
+   SECTION STYLING (GLOBAL)
    ========================================================= */
 section {
-  background: #FFF9F3; /* sand.DEFAULT */
+  background: #FFF9F3;
   padding: 2rem;
   border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06); /* card shadow */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   margin-bottom: 2rem;
 }
 
 section h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #FF8C42; /* copper */
+  color: #FF8C42;
 }
 
 section p,
 section li {
   font-size: 1.1rem;
-  color: #404040; /* ink.700 */
+  color: #404040;
 }
 
 ul, ol {
@@ -109,17 +126,35 @@ ul, ol {
 }
 
 /* =========================================================
-   COVER IMAGE
+   COVER IMAGE (HOMEPAGE)
    ========================================================= */
-.cover-image {
-  width: 95%;
+.cover {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.cover img {
   max-width: 900px;
+  width: 95%;
   border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 }
 
 /* =========================================================
-   FADE-IN
+   LINK STYLING
+   ========================================================= */
+.learn-more a,
+a.inline-link {
+  color: #007BFF;
+  font-weight: bold;
+  text-decoration: none;
+}
+.learn-more a:hover,
+a.inline-link:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   FADE-IN ANIMATION
    ========================================================= */
 .fade-in {
   opacity: 0;
@@ -132,7 +167,7 @@ ul, ol {
 }
 
 /* =========================================================
-   DROPDOWNS (Reports, Labs)
+   DROPDOWNS (Reports, Presentations, Labs)
    ========================================================= */
 .dropdown-section { margin-bottom: 2rem; }
 
@@ -144,28 +179,28 @@ ul, ol {
   border: none;
   cursor: pointer;
   color: #FFF;
-  background: #FF8C42; /* copper */
+  background: #FF8C42;
   transition: background 0.3s ease;
 }
 .dropdown-toggle:hover {
-  background: #D76B00; /* copper.dark */
+  background: #D76B00;
 }
 
 .dropdown-content {
   margin-top: 1rem;
   padding: 1.5rem;
-  background: #FFF9F3; /* sand */
+  background: #FFF9F3;
   border-radius: 14px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.04);
 }
 
 .dropdown-subtext {
-  color: #6B6B6B; /* ink.500 */
+  color: #6B6B6B;
   margin-bottom: 1rem;
 }
 
 /* =========================================================
-   IFRAMES & PDFs
+   IFRAMES & PDF EMBEDS
    ========================================================= */
 .iframe-grid {
   display: grid;
@@ -173,9 +208,7 @@ ul, ol {
   gap: 2rem;
 }
 
-.presentation iframe,
-.report-entry iframe,
-.pdf-item iframe {
+iframe {
   width: 100%;
   height: 650px;
   border: none;
@@ -184,7 +217,7 @@ ul, ol {
 }
 
 /* =========================================================
-   LABS PDF GRID
+   LABS GRID
    ========================================================= */
 .pdf-grid {
   display: grid;
@@ -193,13 +226,14 @@ ul, ol {
 }
 
 .pdf-item {
-  background: #FFF9F3; /* sand */
+  background: #FFF9F3;
   padding: 1.25rem;
   border-radius: 14px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.04);
 }
+
 .pdf-item h3 {
-  color: #FF8C42; /* copper */
+  color: #FF8C42;
   margin-bottom: 1rem;
 }
 
@@ -208,16 +242,16 @@ ul, ol {
    ========================================================= */
 .placeholder-box {
   text-align: center;
-  border: 2px dashed #E5E5E5; /* ink.200 */
-  background: #FFF5EC; /* sand.100 */
+  border: 2px dashed #E5E5E5;
+  background: #FFF5EC;
   padding: 2rem;
   border-radius: 14px;
-  color: #6B6B6B; /* ink.500 */
+  color: #6B6B6B;
   font-size: 1.1rem;
 }
 
 /* =========================================================
-   TEAM PAGE (Updated)
+   TEAM PAGE (FLIP CARDS)
    ========================================================= */
 .team-grid {
   display: grid;
@@ -225,27 +259,29 @@ ul, ol {
   gap: 2rem;
 }
 
-/* Team flip cards */
 .card {
   perspective: 1000px;
   cursor: pointer;
 }
+
 .card-inner {
   height: 360px;
   position: relative;
   transition: transform 0.85s;
   transform-style: preserve-3d;
 }
+
 .card.flipped .card-inner {
   transform: rotateY(180deg);
 }
 
 .card-front,
 .card-back {
-  background: #FFF9F3; /* sand */
+  background: #FFF9F3;
   border-radius: 14px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-  position: absolute; inset: 0;
+  position: absolute;
+  inset: 0;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -253,11 +289,8 @@ ul, ol {
   backface-visibility: hidden;
 }
 
-.card-back {
-  transform: rotateY(180deg);
-}
+.card-back { transform: rotateY(180deg); }
 
-/* Headshots */
 .card-front img {
   width: 120px;
   height: 120px;
@@ -266,7 +299,6 @@ ul, ol {
   margin: 0 auto;
 }
 
-/* Name & Role */
 .card-front h3,
 .card-back h3 {
   font-size: 1.25rem;
@@ -274,17 +306,103 @@ ul, ol {
   font-weight: bold;
 }
 
-/* Role color classes */
-.role-dev { color: #FF8C42; }     /* copper */
-.role-db  { color: #15803D; }     /* forest */
-.role-ai  { color: #89CFF0; }     /* sky */
-.role-web { color: #D76B00; }     /* copper.dark */
-.role-mentor { color: #075985; }  /* sky.900 */
+.role-dev { color: #FF8C42; }
+.role-db  { color: #15803D; }
+.role-ai  { color: #89CFF0; }
+.role-web { color: #D76B00; }
+.role-mentor { color: #075985; }
 
 .card-back p {
-  color: #404040; /* ink.700 */
+  color: #404040;
   font-size: 0.95rem;
   margin-top: 1rem;
+}
+
+/* =========================================================
+   PRESENTATION THUMBNAILS (NEW)
+   ========================================================= */
+.thumb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.thumb-card {
+  background: #FFF9F3;
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.thumb-card:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+}
+
+.thumb-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 0.8rem;
+}
+
+/* Download Button */
+.download-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: #15803D;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.download-btn:hover {
+  background: #0f5f2c;
+}
+
+/* =========================================================
+   MODAL (PRESENTATIONS)
+   ========================================================= */
+.presentation-modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.presentation-modal .modal-content {
+  width: 90%;
+  max-width: 900px;
+  background: white;
+  border-radius: 14px;
+  padding: 1rem;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.presentation-modal iframe {
+  width: 100%;
+  height: 80vh;
+  border: none;
+  border-radius: 10px;
 }
 
 /* =========================================================
@@ -293,8 +411,8 @@ ul, ol {
 footer {
   text-align: center;
   padding: 1rem;
-  background: #FFF9F3; /* sand */
-  border-top: 1px solid #E5E5E5; /* ink.200 */
+  background: #FFF9F3;
+  border-top: 1px solid #E5E5E5;
   position: fixed;
   bottom: 0; left: 0; right: 0;
   box-shadow: 0 -4px 16px rgba(0,0,0,0.04);
@@ -309,7 +427,7 @@ footer a:hover {
 }
 
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE BREAKPOINTS
    ========================================================= */
 @media (max-width: 1100px) {
   .team-grid { grid-template-columns: repeat(3,1fr); }
