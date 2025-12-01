@@ -16,10 +16,9 @@
   <title>ItinerEase | Team</title>
   <link rel="stylesheet" href="style.css">
 
-  <!-- NEW: Team Page Enhancements -->
   <style>
 
-    /* === Fade-in on scroll === */
+    /* === Fade-in animation === */
     .fade-in {
       opacity: 0;
       transform: translateY(25px);
@@ -30,16 +29,30 @@
       transform: translateY(0);
     }
 
-    /* === Flip Card Container === */
+    /* === 2 ROWS OF 4 === */
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
       margin-top: 2rem;
     }
 
+    @media (max-width: 900px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* === Card container === */
     .card {
       perspective: 1000px;
+      cursor: pointer;
     }
 
     .card-inner {
@@ -50,19 +63,20 @@
       transform-style: preserve-3d;
     }
 
-    .card:hover .card-inner {
+    .flipped {
       transform: rotateY(180deg);
     }
 
-    /* === Front & Back Faces === */
-    .card-front, .card-back {
+    /* === Card faces === */
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
       background: #fff;
       padding: 1.5rem;
-      border-radius: 16px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
       backface-visibility: hidden;
     }
 
@@ -75,49 +89,66 @@
 
     .card-back {
       transform: rotateY(180deg);
-      overflow-y: auto;
       text-align: center;
+      overflow-y: auto;
     }
 
-    /* === Standardized Headshots === */
+    /* === Headshots (no border now) === */
     .card-front img {
       width: 130px;
       height: 130px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #007BFF;
       margin-bottom: 1rem;
+      border: none;
     }
 
-    /* === Role Tag === */
+    /* === Role Colors === */
     .role-tag {
-      display: inline-block;
-      padding: 0.3rem 0.75rem;
-      border-radius: 999px;
-      background: #e7f1ff;
-      color: #007BFF;
-      font-size: 0.85rem;
       font-weight: bold;
       margin-bottom: 0.75rem;
+      font-size: 0.95rem;
     }
 
-    /* === Back of Card === */
+    .role-tag[data-role="Software and Database Developer"] {
+      color: #007BFF;
+    }
+
+    .role-tag[data-role="Software Developer and AI Expert"] {
+      color: #E67E22;
+    }
+
+    .role-tag[data-role="Software Developer"] {
+      color: #27AE60;
+    }
+
+    .role-tag[data-role="Software Developer and Webmaster"] {
+      color: #9B59B6;
+    }
+
+    .role-tag[data-role="Mentor"] {
+      color: #C0392B;
+    }
+
+    /* === Back text styling === */
     .card-back p {
-      margin: 0.5rem 0 1rem;
       color: #444;
-      font-size: 0.95rem;
       line-height: 1.45;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
     }
 
   </style>
 </head>
 
 <body class="team">
+
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <div id="header-placeholder"></div>
 
   <main id="main-content" class="content">
+
     <header class="team-header fade-in">
       <h1>Meet the ItinerEase Team</h1>
       <p>We are a diverse and dedicated team committed to building a seamless, smart travel planning experience.</p>
@@ -125,147 +156,123 @@
 
     <section class="team-grid">
 
-      <!-- ==== CRYSTAL ==== -->
+      <!-- CRYSTAL -->
       <div class="card fade-in">
         <div class="card-inner">
-
           <div class="card-front">
             <img src="data/images/headshots/Crystal Headshot.png" alt="Crystal Rivas">
             <h3>Crystal Rivas</h3>
-            <div class="role-tag">Role: Software and Database Developer</div>
+            <div class="role-tag" data-role="Software and Database Developer">Software and Database Developer</div>
           </div>
-
           <div class="card-back">
             <h3>Crystal Rivas</h3>
-            <p>Crystal is a second-degree CS student with a strong foundation in mathematics and analytical thinking.</p>
+            <p>Crystal is a second degree student in Computer Science at ODU with a background in math education, driving innovative solutions through strong problem-solving skills.</p>
           </div>
-
         </div>
       </div>
 
-      <!-- ==== STEPHEN ==== -->
+      <!-- STEPHEN -->
       <div class="card fade-in">
         <div class="card-inner">
-
           <div class="card-front">
             <img src="data/images/headshots/Stephen Headshot.jpg" alt="Stephen Usselman">
             <h3>Stephen Usselman</h3>
-            <div class="role-tag">Role: Software Developer and AI Expert</div>
+            <div class="role-tag" data-role="Software Developer and AI Expert">Software Developer and AI Expert</div>
           </div>
-
           <div class="card-back">
             <h3>Stephen Usselman</h3>
-            <p>A senior CS major focused on delivering clean, scalable software and exploring creative development approaches.</p>
+            <p>Stephen, a senior at ODU majoring in Computer Science, aspires to become a Software Developer and bring creative ideas to life.</p>
           </div>
-
         </div>
       </div>
 
-      <!-- ==== WILLIAM M ==== -->
+      <!-- WILLIAM M -->
       <div class="card fade-in">
         <div class="card-inner">
-
           <div class="card-front">
             <img src="data/images/headshots/William M. Headshot.jpg" alt="William Mbandi">
             <h3>William Mbandi</h3>
-            <div class="role-tag">Role: Software Developer</div>
+            <div class="role-tag" data-role="Software Developer">Software Developer</div>
           </div>
-
           <div class="card-back">
             <h3>William Mbandi</h3>
-            <p>A CS senior with a Cyber Security minor, driven to excel in backend and secure software development.</p>
+            <p>William is a senior at ODU majoring in Computer Science with a minor in Cyber Security, aiming for a future in Software Development.</p>
           </div>
-
         </div>
       </div>
 
-      <!-- ==== WILLIAM P ==== -->
+      <!-- WILLIAM P -->
       <div class="card fade-in">
         <div class="card-inner">
-
           <div class="card-front">
             <img src="data/images/headshots/William P. Headshot.jpg" alt="William Poston">
             <h3>William Poston</h3>
-            <div class="role-tag">Role: Software Developer and Webmaster</div>
+            <div class="role-tag" data-role="Software Developer and Webmaster">Software Developer and Webmaster</div>
           </div>
-
           <div class="card-back">
             <h3>William Poston</h3>
-            <p>CS senior with a Data Science minor passionate about AI, machine learning, and building intelligent interfaces.</p>
+            <p>William is a senior at ODU majoring in Computer Science with a minor in Data Science, dreaming of a career as an AI prompt engineer.</p>
           </div>
-
         </div>
       </div>
 
-      <!-- ==== JANDRA ==== -->
+      <!-- JANDRA -->
       <div class="card fade-in">
         <div class="card-inner">
-
           <div class="card-front">
             <img src="data/images/headshots/Jandra Headshot.jpg" alt="Jandra D. Arias Tavarez">
             <h3>Jandra D. Arias Tavarez</h3>
-            <div class="role-tag">Role: Software and Database Developer</div>
+            <div class="role-tag" data-role="Software and Database Developer">Software and Database Developer</div>
           </div>
-
           <div class="card-back">
             <h3>Jandra D. Arias Tavarez</h3>
-            <p>Second-degree CS student passionate about creating intuitive and user-centered software applications.</p>
+            <p>Jandra is a second degree student at ODU pursuing a Bachelor's in Computer Science, with aspirations to become a Software Developer.</p>
           </div>
-
         </div>
       </div>
 
-      <!-- ==== FREDRICK ==== -->
+      <!-- FREDRICK -->
       <div class="card fade-in">
         <div class="card-inner">
-
           <div class="card-front">
             <img src="data/images/headshots/Fredrick Headshot.jpg" alt="Fredrick Terling">
             <h3>Fredrick Terling</h3>
-            <div class="role-tag">Role: Software Developer</div>
+            <div class="role-tag" data-role="Software Developer">Software Developer</div>
           </div>
-
           <div class="card-back">
             <h3>Fredrick Terling</h3>
-            <p>Aspiring game developer and CS senior driven to bring interactive, polished experiences to life.</p>
+            <p>Fredrick is a senior at ODU majoring in Computer Science, with dreams of entering the tech industry as a Game Developer and eventually a Game Producer.</p>
           </div>
-
         </div>
       </div>
 
-      <!-- ==== BALEMUAL ==== -->
+      <!-- BALEMUAL -->
       <div class="card fade-in">
         <div class="card-inner">
-
           <div class="card-front">
             <img src="data/images/headshots/Balemual Headshot.jpg" alt="Balemual Ymamu">
             <h3>Balemual Ymamu</h3>
-            <div class="role-tag">Role: Software and Database Developer</div>
+            <div class="role-tag" data-role="Software and Database Developer">Software and Database Developer</div>
           </div>
-
           <div class="card-back">
             <h3>Balemual Ymamu</h3>
-            <p>CS senior eager to gain hands-on experience and pursue a future in full-stack software development.</p>
+            <p>Balemual Ymamu is a senior at ODU majoring in Computer Science. He is eager to gain hands-on experience in tech field and look forward to working as a Software Developer after graduation.</p>
           </div>
-
         </div>
       </div>
 
-      <!-- ==== JACOB ==== -->
+      <!-- JACOB -->
       <div class="card fade-in">
         <div class="card-inner">
-
           <div class="card-front">
             <img src="data/images/headshots/Jacob Headshot.jpg" alt="Jacob Cook">
             <h3>Jacob Cook</h3>
-            <div class="role-tag">Role: Mentor</div>
+            <div class="role-tag" data-role="Mentor">Mentor</div>
           </div>
-
           <div class="card-back">
             <h3>Jacob Cook</h3>
-            <p>ODU CS alumnus, IT instructor, and founder of Southside Tech Services with a passion for community-centered technology.</p>
+            <p>Jacob Cook is an ODU Computer Science alumnus, IT Instructor at the Southern Virginia Higher Education Center, and founder/CEO of Southside Tech Services.</p>
           </div>
-
         </div>
       </div>
 
@@ -277,18 +284,25 @@
   <script src="templateLoader.js"></script>
   <script src="anotherScript.js"></script>
 
-  <!-- Fade-in on scroll script -->
+  <!-- Fade-in animation -->
   <script>
     const fadeEls = document.querySelectorAll(".fade-in");
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add("visible");
-        });
-      },
-      { threshold: 0.2 }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.2 });
     fadeEls.forEach(el => observer.observe(el));
+  </script>
+
+  <!-- Flip-on-click -->
+  <script>
+    document.querySelectorAll(".card").forEach(card => {
+      card.addEventListener("click", () => {
+        const inner = card.querySelector(".card-inner");
+        inner.classList.toggle("flipped");
+      });
+    });
   </script>
 
 </body>
