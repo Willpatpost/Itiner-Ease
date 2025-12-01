@@ -12,11 +12,11 @@
 body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
-  background-color: #FFF5EC; /* sand.100 */
-  color: #1A1A1A; /* ink.900 */
+  background-color: #FFF5EC;
+  color: #1A1A1A;
 }
 
-/* Prevent images from overflowing their containers */
+/* Prevent images from overflowing */
 img {
   max-width: 100%;
   height: auto;
@@ -36,7 +36,6 @@ img {
 
 .img-responsive {
   width: 100%;
-  height: auto;
   border-radius: 14px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.06);
 }
@@ -55,7 +54,7 @@ img {
 .skip-link:focus { top: 0; }
 
 /* =========================================================
-   HEADER (FULL HEADER STICKY)
+   HEADER — FULLY STICKY
    ========================================================= */
 header.site-header {
   position: sticky;
@@ -65,26 +64,23 @@ header.site-header {
   box-shadow: 0 4px 16px rgba(0,0,0,0.05);
 }
 
-/* Inner navbar container */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 2rem;
-  border-bottom: 1px solid #E5E5E5;
   background: #FFF9F3;
+  border-bottom: 1px solid #E5E5E5;
 }
 
 .logo-link { display: flex; align-items: center; }
 
 .logo-img {
   height: 48px;
-  width: auto;
   transition: opacity 0.2s ease;
 }
 .logo-link:hover .logo-img { opacity: 0.85; }
 
-/* Navigation */
 .nav-menu { display: flex; }
 
 .nav-links {
@@ -104,7 +100,7 @@ header.site-header {
   color: #D76B00;
 }
 
-/* Mobile Menu Button */
+/* Mobile toggle */
 .menu-toggle {
   display: none;
   font-size: 2rem;
@@ -119,24 +115,23 @@ header.site-header {
    MAIN CONTENT WRAPPER
    ========================================================= */
 
-/* Header ~72px, Footer ~60px */
+/* Sticky header (~72px) + sticky footer (~60px) */
 main {
   padding: 2rem;
   max-width: 1200px;
-  margin: 100px auto 140px; /* prevents overlap on both ends */
+  margin: 90px auto 90px; /* keeps content clear of both sticky areas */
   padding-bottom: 4rem;
 }
 
 /* =========================================================
-   SECTION STYLING (GLOBAL)
+   SECTION STYLING
    ========================================================= */
 section {
   background: #FFF9F3;
   padding: 2rem;
   border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   margin-bottom: 2rem;
-  overflow:visible;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
 }
 
 section h2 {
@@ -157,19 +152,16 @@ ul, ol {
 }
 
 /* =========================================================
-   HOME COVER IMAGE
+   COVER IMAGE
    ========================================================= */
 .cover {
   text-align: center;
   margin-top: 1.5rem;
 }
 .cover img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
   max-width: 900px;
   width: 95%;
+  margin: 0 auto;
   border-radius: 14px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 }
@@ -189,7 +181,7 @@ a.inline-link:hover {
 }
 
 /* =========================================================
-   FADE-IN ANIMATION
+   FADE-IN
    ========================================================= */
 .fade-in {
   opacity: 0;
@@ -202,7 +194,7 @@ a.inline-link:hover {
 }
 
 /* =========================================================
-   DROPDOWNS (Reports, Presentations, Labs)
+   DROPDOWNS
    ========================================================= */
 .dropdown-section { margin-bottom: 2rem; }
 
@@ -225,11 +217,10 @@ a.inline-link:hover {
   background: #FFF9F3;
   border-radius: 14px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.04);
-  overflow:visible;
 }
 
 /* =========================================================
-   IFRAMES & EMBEDS
+   IFRAMES
    ========================================================= */
 iframe {
   width: 100%;
@@ -240,7 +231,7 @@ iframe {
 }
 
 /* =========================================================
-   LABS PDF GRID
+   PDF GRID
    ========================================================= */
 .pdf-grid {
   display: grid;
@@ -253,11 +244,10 @@ iframe {
   padding: 1.25rem;
   border-radius: 14px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.04);
-  overflow:visible;
 }
 
 /* =========================================================
-   TEAM PAGE — FLIP CARDS
+   TEAM GRID
    ========================================================= */
 .team-grid {
   display: grid;
@@ -265,18 +255,18 @@ iframe {
   gap: 2rem;
 }
 
-/* (Your flip card styles remain unchanged — they were correct) */
-
 /* =========================================================
-   PRESENTATIONS — LIST-ONLY
+   PRESENTATIONS
    ========================================================= */
 .presentation-list {
   list-style: none;
-  padding-left: 0;
   margin: 0;
+  padding: 0;
 }
 
-.presentation-list li { margin-bottom: 0.75rem; }
+.presentation-list li {
+  margin-bottom: 0.75rem;
+}
 
 .presentation-list a {
   font-size: 1.1rem;
@@ -290,7 +280,7 @@ iframe {
 }
 
 /* =========================================================
-   GLOSSARY PAGE
+   GLOSSARY
    ========================================================= */
 dl { margin-top: 1.5rem; }
 
@@ -303,23 +293,23 @@ dt {
 
 dd {
   margin-left: 1rem;
+  margin-top: 0.25rem;
   font-size: 1.05rem;
   color: #404040;
   line-height: 1.55;
-  margin-top: 0.25rem;
 }
 
 /* =========================================================
-   STICKY FOOTER
+   STICKY FOOTER (FULLY STICKY)
    ========================================================= */
 footer {
-  text-align: center;
-  padding: 1rem;
-  background: #FFF9F3;
-  border-top: 1px solid #E5E5E5;
   position: sticky;
   bottom: 0;
   z-index: 1100;
+  background: #FFF9F3;
+  border-top: 1px solid #E5E5E5;
+  text-align: center;
+  padding: 1rem;
   box-shadow: 0 -4px 16px rgba(0,0,0,0.04);
 }
 
@@ -341,7 +331,6 @@ footer a:hover {
 @media (max-width: 900px) {
   .team-grid { grid-template-columns: repeat(2,1fr); }
 
-  /* Mobile Navbar */
   .menu-toggle { display: block; }
 
   .nav-menu {
@@ -363,10 +352,7 @@ footer a:hover {
     flex-direction: column;
     text-align: center;
   }
-
-  .nav-links li {
-    margin: 1rem 0;
-  }
+  .nav-links li { margin: 1rem 0; }
 }
 
 @media (max-width: 600px) {
