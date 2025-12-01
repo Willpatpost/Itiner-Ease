@@ -138,25 +138,6 @@
   <div id="footer-placeholder"></div>
 
   <script src="/Itiner-Ease/main.js"></script>
-  
-
-  <!-- Dropdown toggle logic -->
-  <script>
-    document.querySelectorAll(".dropdown-toggle").forEach(button => {
-      button.addEventListener("click", () => {
-        const content = document.getElementById(button.getAttribute("aria-controls"));
-        const isOpen = button.getAttribute("aria-expanded") === "true";
-
-        button.setAttribute("aria-expanded", !isOpen);
-        content.hidden = isOpen;
-
-        button.textContent = button.textContent.replace(
-          isOpen ? "▲" : "▼",
-          isOpen ? "▼" : "▲"
-        );
-      });
-    });
-  </script>
 
 </body>
 </html>
