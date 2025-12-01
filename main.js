@@ -101,15 +101,17 @@ function setupMobileMenu() {
 // DOM READY
 // ===============================
 document.addEventListener("DOMContentLoaded", async () => {
-  // Inject header/footer first
   await Promise.all([
     loadHTML("/Itiner-Ease/header.html", "header-placeholder"),
     loadHTML("/Itiner-Ease/footer.html", "footer-placeholder"),
   ]);
 
-  // Initialize behaviors (delegated where appropriate)
   setupFadeIn();
-  setupDelegatedDropdowns();
-  setupDelegatedCardFlips();
+  setupCardFlips();
   setupMobileMenu();
+
+  // Run dropdown setup AFTER the entire page is fully loaded
+  window.addEventListener("load", () => {
+    setupDropdowns();
+  });
 });
