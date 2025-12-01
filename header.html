@@ -37,15 +37,3 @@
 
   </div>
 </header>
-
-<script>
-  // Mobile Menu Toggle Logic
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-
-  menuToggle.addEventListener('click', () => {
-    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-    menuToggle.setAttribute('aria-expanded', String(!isExpanded));
-    navMenu.classList.toggle('open'); // ✔ matches CSS .nav-menu.open
-  });
-</script>
