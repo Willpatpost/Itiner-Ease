@@ -18,8 +18,13 @@
   <!-- TEAM PAGE FIXED CUSTOM STYLES -->
   <style>
 
+    /* Prevent overflow clipping 3D transforms */
+    .team-grid {
+      overflow: visible !important;
+    }
+
     /* ===============================
-       GRID — 4 columns desktop
+       GRID
     =============================== */
     .team-grid {
       display: grid;
@@ -27,37 +32,29 @@
       gap: 2rem;
       margin-top: 2rem;
     }
-    @media (max-width: 1100px) {
-      .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 650px) {
-      .team-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 1100px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 650px) { .team-grid { grid-template-columns: 1fr; } }
 
     /* ===============================
        CARD WRAPPER
     =============================== */
     .card {
-      perspective: 1000px;
+      perspective: 1200px; /* required for 3D flip */
       cursor: pointer;
     }
 
     /* ===============================
-       Card Inner (FLIP CONTAINER)
+       CARD INNER (FLIP CONTAINER)
     =============================== */
     .card-inner {
       width: 100%;
       height: 420px;
       position: relative;
-      transition: transform 0.85s;
-      transform-style: preserve-3d;
+      transition: transform 0.85s ease;
+      transform-style: preserve-3d; /* CRITICAL */
     }
 
-    /* Flip */
+    /* Flip when active */
     .card.flipped .card-inner {
       transform: rotateY(180deg);
     }
@@ -74,8 +71,9 @@
       background: #FFF9F3;
       border-radius: 14px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      backface-visibility: hidden;
       padding: 1.5rem;
+      backface-visibility: hidden; /* CRITICAL */
+      -webkit-backface-visibility: hidden; /* iOS fix */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -97,22 +95,27 @@
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    /* Name */
+    .card-front h3,
+    .card-back h3 {
+      margin-top: 0.5rem;
+      font-size: 1.25rem;
     }
 
     /* ===============================
-       Role Tag
+       Role Tags
     =============================== */
     .role-tag {
-      display: inline-block;
       margin-top: 0.5rem;
       padding: 0.35rem 0.85rem;
-      background: rgba(0,0,0,0.05);
       border-radius: 999px;
       font-size: 0.9rem;
+      background: rgba(0,0,0,0.05);
       font-weight: 600;
     }
-
-    /* Thematic colors (matching your orange palette) */
     .role-dev { color: #D76B00; }
     .role-db { color: #15803D; }
     .role-ai { color: #89CFF0; }
@@ -120,9 +123,8 @@
     .role-mentor { color: #075985; }
 
     .card-back p {
-      color: #444;
       margin-top: 1rem;
-      font-size: 0.95rem;
+      color: #444;
       line-height: 1.45;
     }
 
@@ -271,7 +273,22 @@
 
   <div id="footer-placeholder"></div>
 
+  <!-- Script -->
   <script src="/Itiner-Ease/main.js"></script>
+  <script>
+    function initCardFlips() {
+      document.querySelectorAll(".card").forEach(card => {
+        card.addEventListener("click", () => {
+          card.classList.toggle("flipped");
+        });
+      });
+    }
+
+    // Run after header/footer load (main.js loads them asynchronously)
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(initCardFlips, 200); // small delay guarantees elements exist
+    });
+  </script>
 
 </body>
 </html>
