@@ -105,26 +105,6 @@
 
   <!-- Template Loader -->
   <script src="/Itiner-Ease/main.js"></script>
-  
-
-  <!-- Dropdown Logic -->
-  <script>
-    document.querySelectorAll(".dropdown-toggle").forEach(button => {
-      button.addEventListener("click", () => {
-        const content = document.getElementById(button.getAttribute("aria-controls"));
-        const isOpen = button.getAttribute("aria-expanded") === "true";
-
-        button.setAttribute("aria-expanded", !isOpen);
-        content.hidden = isOpen;
-
-        // Flip arrow
-        button.textContent = button.textContent.replace(
-          isOpen ? "▲" : "▼",
-          isOpen ? "▼" : "▲"
-        );
-      });
-    });
-  </script>
 
   <!-- Fade-in Animation -->
   <script>
