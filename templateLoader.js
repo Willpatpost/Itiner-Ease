@@ -9,10 +9,11 @@ async function loadHTML(url, targetId) {
   }
 
   try {
+    console.log(`templateLoader: Fetching ${url}`);
     const response = await fetch(url);
 
     if (!response.ok) {
-      throw new Error(`Failed to fetch ${url} — ${response.status}`);
+      throw new Error(`Failed to fetch ${url} — HTTP ${response.status}`);
     }
 
     const html = await response.text();
@@ -25,13 +26,20 @@ async function loadHTML(url, targetId) {
 
 // Load header/footer once DOM is ready
 document.addEventListener("DOMContentLoaded", async () => {
+
+  // IMPORTANT: Use absolute repo paths so GitHub Pages loads them correctly
   await Promise.all([
-    loadHTML("header.html", "header-placeholder"),
-    loadHTML("footer.html", "footer-placeholder")
+    loadHTML("/Itiner-Ease/header.html", "header-placeholder"),
+    loadHTML("/Itiner-Ease/footer.html", "footer-placeholder")
   ]);
 
   // Re-run fade-in intersection observer AFTER header/footer load
-  document.querySelectorAll(".fade-in").forEach(el => {
-    observer.observe(el);
-  });
+  // Only run if observer exists (prevents runtime crashes)
+  if (typeof observer !== "undefined") {
+    document.querySelectorAll(".fade-in").forEach(el => {
+      observer.observe(el);
+    });
+  } else {
+    console.warn("templateLoader: observer not defined — fade-in animations skipped.");
+  }
 });
