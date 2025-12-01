@@ -164,6 +164,10 @@ ul, ol {
   margin-top: 1.5rem;
 }
 .cover img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
   max-width: 900px;
   width: 95%;
   border-radius: 14px;
