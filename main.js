@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const header = await loadHTMLSync("/Itiner-Ease/header.html");
   const footer = await loadHTMLSync("/Itiner-Ease/footer.html");
 
-  document.getElementById("header-placeholder").outerHTML = header;
+  document.getElementById("header-placeholder").innerHTML = header;
   document.getElementById("footer-placeholder").outerHTML = footer;
 
   // Now that header/footer exist → initialize interactions
