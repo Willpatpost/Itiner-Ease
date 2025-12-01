@@ -5,37 +5,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <!-- SEO & Metadata -->
-  <meta name="description" content="ItinerEase Labs page. Placeholder content – coming soon!" />
+  <meta name="description" content="ItinerEase Labs – Individual and Group Lab Work" />
   <meta property="og:title" content="ItinerEase | Labs" />
-  <meta property="og:description" content="Placeholder for labs content." />
+  <meta property="og:description" content="Explore individual and group lab submissions from the team." />
   <meta property="og:url" content="https://yourdomain.com/labs.html" />
   <meta property="og:type" content="website" />
+
   <title>ItinerEase | Labs</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="presentations">
+
+<body class="labs">
   <!-- Skip link for accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  
+
   <div id="header-placeholder"></div>
-  
+
   <main id="main-content" class="content">
     <h1>Team Lab Work</h1>
-    <section class="iframe-grid">
 
-      <article class="presentation">
-        <h2>Lab v1</h2>
-        <iframe src="https://docs.google.com/document/d/e/2PACX-1vSKCekIB1ecUReqZdTIOpZ1Xztp6Gq8h5u7t4B9LJ4jpQ84ta4Q3o9Ex24XILkUcUpJEMnvor8yMh2o/pub?embedded=true"></iframe>
-      </article>
-      
+    <!-- ===== DROPDOWN: INDIVIDUAL LABS ===== -->
+    <section class="dropdown-section">
+      <button class="dropdown-toggle" aria-expanded="false" aria-controls="individual-labs">
+        Individual Labs ▼
+      </button>
+
+      <div id="individual-labs" class="dropdown-content" hidden>
+        <p class="dropdown-subtext">Click a lab to view the embedded PDF.</p>
+
+        <div class="pdf-grid">
+
+          <!-- Example PDFs (you may add more) -->
+          <article class="pdf-item">
+            <h3>William Mbandi – Lab 2 (Sections 1 & 2)</h3>
+            <iframe
+              src="data/documents/labs/individual/Lab 2 - Section 1 & 2(V2) William Mbandi.pdf"
+              title="William Mbandi Lab 2 PDF"></iframe>
+          </article>
+
+          <article class="pdf-item">
+            <h3>Stephen Usselman – Lab 2 (Sections 1 & 2)</h3>
+            <iframe
+              src="data/documents/labs/individual/Lab2  Section1&2(V2) - Stephen_Usselman.pdf"
+              title="Stephen Usselman Lab 2 PDF"></iframe>
+          </article>
+
+          <article class="pdf-item">
+            <h3>Crystal Rivas – Lab 2 (Sections 1 & 2)</h3>
+            <iframe
+              src="data/documents/labs/individual/Lab2 Section1-2 V2- Crystal Rivas.pdf"
+              title="Crystal Rivas Lab 2 PDF"></iframe>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DROPDOWN: GROUP LABS ===== -->
+    <section class="dropdown-section">
+      <button class="dropdown-toggle" aria-expanded="false" aria-controls="group-labs">
+        Group Labs ▼
+      </button>
+
+      <div id="group-labs" class="dropdown-content" hidden>
+        <p class="dropdown-subtext">Group lab documents will appear here.</p>
+
+        <!-- Placeholder until you provide group PDFs -->
+        <div class="placeholder-box">
+          <p>No group lab PDFs uploaded yet.</p>
+        </div>
+      </div>
     </section>
   </main>
-  
+
   <div id="footer-placeholder"></div>
-  
+
+  <!-- Template loader scripts -->
   <script src="templateLoader.js"></script>
   <script src="anotherScript.js"></script>
-  
+
+  <!-- ===== Dropdown Script ===== -->
+  <script>
+    document.querySelectorAll(".dropdown-toggle").forEach(button => {
+      button.addEventListener("click", () => {
+        const contentId = button.getAttribute("aria-controls");
+        const content = document.getElementById(contentId);
+
+        const isOpen = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", !isOpen);
+        content.hidden = isOpen;
+
+        // Toggle arrow ▼ ▲
+        button.textContent = button.textContent.replace(
+          isOpen ? "▲" : "▼",
+          isOpen ? "▼" : "▲"
+        );
+      });
+    });
+  </script>
+
 </body>
 </html>
