@@ -88,8 +88,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     loadHTML("/Itiner-Ease/footer.html", "footer-placeholder"),
   ]);
 
-  setupFadeIn();
-  setupDropdowns();
-  setupCardFlips();
-  setupMobileMenu();
+  requestAnimationFrame(() => {
+    setupFadeIn();
+    setupDropdowns();
+    setupCardFlips();
+    setupMobileMenu();
+  });
 });
