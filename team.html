@@ -6,7 +6,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO -->
   <meta name="description" content="Meet the team behind ItinerEase, a passionate group of innovators dedicated to modern travel planning.">
   <meta property="og:title" content="ItinerEase | Team">
   <meta property="og:description" content="Meet the ItinerEase development team.">
@@ -14,21 +13,130 @@
 
   <title>ItinerEase | Team</title>
 
-  <!-- Global Styles -->
   <link rel="stylesheet" href="/Itiner-Ease/style.css">
+
+  <!-- TEAM PAGE FIXED CUSTOM STYLES -->
+  <style>
+
+    /* ===============================
+       GRID — 4 columns desktop
+    =============================== */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 1100px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 650px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===============================
+       CARD WRAPPER
+    =============================== */
+    .card {
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    /* ===============================
+       Card Inner (FLIP CONTAINER)
+    =============================== */
+    .card-inner {
+      width: 100%;
+      height: 420px;
+      position: relative;
+      transition: transform 0.85s;
+      transform-style: preserve-3d;
+    }
+
+    /* Flip */
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* ===============================
+       FRONT + BACK FACES
+    =============================== */
+    .card-front,
+    .card-back {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: #FFF9F3;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      backface-visibility: hidden;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      overflow-y: auto;
+      padding: 2rem;
+    }
+
+    /* ===============================
+       HEADSHOTS
+    =============================== */
+    .card-front img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ===============================
+       Role Tag
+    =============================== */
+    .role-tag {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      background: rgba(0,0,0,0.05);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* Thematic colors (matching your orange palette) */
+    .role-dev { color: #D76B00; }
+    .role-db { color: #15803D; }
+    .role-ai { color: #89CFF0; }
+    .role-web { color: #FF8C42; }
+    .role-mentor { color: #075985; }
+
+    .card-back p {
+      color: #444;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+  </style>
 </head>
 
 <body class="team">
 
-  <!-- Accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Header -->
   <div id="header-placeholder"></div>
 
   <main id="main-content">
 
-    <!-- Intro -->
     <header class="team-header fade-in text-center mt-2">
       <h1>Meet the ItinerEase Team</h1>
       <p>We are a diverse and dedicated team committed to building a seamless, smart travel planning experience.</p>
@@ -38,182 +146,131 @@
     <section class="team-grid fade-in mt-4">
 
       <!-- ==== CRYSTAL ==== -->
-      <article class="card">
+      <div class="card">
         <div class="card-inner">
-
           <div class="card-front">
             <img src="/Itiner-Ease/data/images/headshots/Crystal Headshot.png" alt="Crystal Rivas">
             <h3>Crystal Rivas</h3>
             <span class="role-tag role-db">Software and Database Developer</span>
           </div>
-
           <div class="card-back">
             <h3>Crystal Rivas</h3>
-            <p>
-              Crystal is a second degree student in Computer Science at ODU with a background 
-              in math education, driving innovative solutions through strong problem-solving skills.
-            </p>
+            <p>Crystal is a second degree student in Computer Science at ODU with a background in math education, driving innovative solutions through strong problem-solving skills.</p>
           </div>
-
         </div>
-      </article>
+      </div>
 
       <!-- ==== STEPHEN ==== -->
-      <article class="card">
+      <div class="card">
         <div class="card-inner">
-
           <div class="card-front">
             <img src="/Itiner-Ease/data/images/headshots/Stephen Headshot.jpg" alt="Stephen Usselman">
             <h3>Stephen Usselman</h3>
             <span class="role-tag role-ai">Software Developer and AI Expert</span>
           </div>
-
           <div class="card-back">
             <h3>Stephen Usselman</h3>
-            <p>
-              Stephen, a senior at ODU majoring in Computer Science, aspires to become a 
-              Software Developer and bring creative ideas to life.
-            </p>
+            <p>Stephen is a senior at ODU majoring in Computer Science, aspiring to bring creative ideas to life.</p>
           </div>
-
         </div>
-      </article>
+      </div>
 
       <!-- ==== WILLIAM M ==== -->
-      <article class="card">
+      <div class="card">
         <div class="card-inner">
-
           <div class="card-front">
             <img src="/Itiner-Ease/data/images/headshots/William M. Headshot.jpg" alt="William Mbandi">
             <h3>William Mbandi</h3>
             <span class="role-tag role-dev">Software Developer</span>
           </div>
-
           <div class="card-back">
             <h3>William Mbandi</h3>
-            <p>
-              William is a senior at ODU majoring in Computer Science with a minor in Cyber Security, 
-              aiming for a future in Software Development.
-            </p>
+            <p>William is a senior at ODU majoring in Computer Science with a minor in Cyber Security, aiming for a career in Software Development.</p>
           </div>
-
         </div>
-      </article>
+      </div>
 
       <!-- ==== WILLIAM P ==== -->
-      <article class="card">
+      <div class="card">
         <div class="card-inner">
-
           <div class="card-front">
             <img src="/Itiner-Ease/data/images/headshots/William P. Headshot.jpg" alt="William Poston">
             <h3>William Poston</h3>
             <span class="role-tag role-web">Software Developer and Webmaster</span>
           </div>
-
           <div class="card-back">
             <h3>William Poston</h3>
-            <p>
-              William is a senior at ODU majoring in Computer Science with a minor in Data Science, 
-              dreaming of a career as an AI prompt engineer.
-            </p>
+            <p>William is a senior at ODU majoring in Computer Science with a minor in Data Science, aspiring to be an AI prompt engineer.</p>
           </div>
-
         </div>
-      </article>
+      </div>
 
       <!-- ==== JANDRA ==== -->
-      <article class="card">
+      <div class="card">
         <div class="card-inner">
-
           <div class="card-front">
             <img src="/Itiner-Ease/data/images/headshots/Jandra Headshot.jpg" alt="Jandra D. Arias Tavarez">
-            <h3>Jandra D. Arias Tavarez</h3>
+            <h3>Jandra D. Arias</h3>
             <span class="role-tag role-db">Software and Database Developer</span>
           </div>
-
           <div class="card-back">
-            <h3>Jandra D. Arias Tavarez</h3>
-            <p>
-              Jandra is a second degree student at ODU pursuing a Bachelor's in Computer Science, 
-              with aspirations to become a Software Developer.
-            </p>
+            <h3>Jandra D. Arias</h3>
+            <p>Jandra is a second degree student pursuing a CS degree with aspirations to become a software developer.</p>
           </div>
-
         </div>
-      </article>
+      </div>
 
       <!-- ==== FREDRICK ==== -->
-      <article class="card">
+      <div class="card">
         <div class="card-inner">
-
           <div class="card-front">
             <img src="/Itiner-Ease/data/images/headshots/Fredrick Headshot.jpg" alt="Fredrick Terling">
             <h3>Fredrick Terling</h3>
             <span class="role-tag role-dev">Software Developer</span>
           </div>
-
           <div class="card-back">
             <h3>Fredrick Terling</h3>
-            <p>
-              Fredrick is a senior at ODU majoring in Computer Science, with dreams of entering 
-              the tech industry as a Game Developer and eventually a Game Producer.
-            </p>
+            <p>Fredrick is a senior at ODU majoring in Computer Science, pursuing a career in Game Development.</p>
           </div>
-
         </div>
-      </article>
+      </div>
 
       <!-- ==== BALEMUAL ==== -->
-      <article class="card">
+      <div class="card">
         <div class="card-inner">
-
           <div class="card-front">
             <img src="/Itiner-Ease/data/images/headshots/Balemual Headshot.jpg" alt="Balemual Ymamu">
             <h3>Balemual Ymamu</h3>
-            <span class="role-tag role-db">Software and Database Developer</span>
+            <span class="role-tag role-db">Software & Database Developer</span>
           </div>
-
           <div class="card-back">
             <h3>Balemual Ymamu</h3>
-            <p>
-              Balemual Ymamu is a senior at ODU majoring in Computer Science. 
-              He is eager to gain hands-on experience in the tech field and looks forward to 
-              working as a Software Developer after graduation.
-            </p>
+            <p>Balemual is a senior CS major passionate about gaining hands-on experience in software engineering.</p>
           </div>
-
         </div>
-      </article>
+      </div>
 
       <!-- ==== JACOB ==== -->
-      <article class="card">
+      <div class="card">
         <div class="card-inner">
-
           <div class="card-front">
             <img src="/Itiner-Ease/data/images/headshots/Jacob Headshot.jpg" alt="Jacob Cook">
             <h3>Jacob Cook</h3>
             <span class="role-tag role-mentor">Mentor</span>
           </div>
-
           <div class="card-back">
             <h3>Jacob Cook</h3>
-            <p>
-              Jacob Cook is an ODU Computer Science alumnus, IT Instructor at the Southern Virginia 
-              Higher Education Center, and founder/CEO of Southside Tech Services.
-            </p>
+            <p>Jacob is an ODU CS alumnus, instructor, and founder of Southside Tech Services.</p>
           </div>
-
         </div>
-      </article>
+      </div>
 
     </section>
 
   </main>
 
-  <!-- Footer -->
   <div id="footer-placeholder"></div>
 
-  <!-- Script -->
   <script src="/Itiner-Ease/main.js"></script>
 
 </body>
