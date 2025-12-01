@@ -4,9 +4,9 @@
   <div class="navbar">
 
     <!-- Logo -->
-    <a href="index.html" class="logo-link">
+    <a href="/Itiner-Ease/index.html" class="logo-link">
       <img 
-        src="data/images/logos/itinerease-logo-dark.svg" 
+        src="/Itiner-Ease/data/images/logos/itinerease-logo-dark.svg"
         alt="ItinerEase Logo" 
         class="logo-img"
       >
@@ -20,18 +20,18 @@
     <!-- Navigation -->
     <nav class="nav-menu">
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="problem.html">Problem</a></li>
-        <li><a href="solution.html">Solution</a></li>
-        <li><a href="team.html">Team</a></li>
-        <li><a href="reports.html">Reports</a></li>
-        <li><a href="presentations.html">Presentations</a></li>
-        <li><a href="deliverables.html">Deliverables</a></li>
-        <li><a href="poster.html">Poster</a></li>
-        <li><a href="labs.html">Labs</a></li>
-        <li><a href="userStories.html">User Stories</a></li>
-        <li><a href="glossary.html">Glossary</a></li>
-        <li><a href="references.html">References</a></li>
+        <li><a href="/Itiner-Ease/index.html">Home</a></li>
+        <li><a href="/Itiner-Ease/problem.html">Problem</a></li>
+        <li><a href="/Itiner-Ease/solution.html">Solution</a></li>
+        <li><a href="/Itiner-Ease/team.html">Team</a></li>
+        <li><a href="/Itiner-Ease/reports.html">Reports</a></li>
+        <li><a href="/Itiner-Ease/presentations.html">Presentations</a></li>
+        <li><a href="/Itiner-Ease/deliverables.html">Deliverables</a></li>
+        <li><a href="/Itiner-Ease/poster.html">Poster</a></li>
+        <li><a href="/Itiner-Ease/labs.html">Labs</a></li>
+        <li><a href="/Itiner-Ease/userStories.html">User Stories</a></li>
+        <li><a href="/Itiner-Ease/glossary.html">Glossary</a></li>
+        <li><a href="/Itiner-Ease/references.html">References</a></li>
       </ul>
     </nav>
 
@@ -39,13 +39,15 @@
 
   <!-- Mobile script (kept lightweight) -->
   <script>
-    const toggleBtn = document.querySelector(".menu-toggle");
-    const navMenu = document.querySelector(".nav-menu");
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleBtn = document.querySelector(".menu-toggle");
+      const navMenu = document.querySelector(".nav-menu");
 
-    toggleBtn.addEventListener("click", () => {
-      const open = toggleBtn.getAttribute("aria-expanded") === "true";
-      toggleBtn.setAttribute("aria-expanded", !open);
-      navMenu.classList.toggle("open");
+      toggleBtn.addEventListener("click", () => {
+        const open = toggleBtn.getAttribute("aria-expanded") === "true";
+        toggleBtn.setAttribute("aria-expanded", !open);
+        navMenu.classList.toggle("open");
+      });
     });
   </script>
 </header>
