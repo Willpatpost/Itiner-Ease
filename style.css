@@ -29,20 +29,19 @@ body {
   z-index: 100;
   transition: top 0.3s;
 }
-
 .skip-link:focus {
   top: 0;
 }
 
 /* =========================================================
-   NAVIGATION BAR
+   HEADER / NAVIGATION BAR (Updated with Logo)
    ========================================================= */
 .navbar {
   background-color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.75rem 2rem;
   border-bottom: 1px solid #ddd;
   position: fixed;
   top: 0;
@@ -51,97 +50,45 @@ body {
   z-index: 1000;
 }
 
-.navbar .logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #333;
+.logo-link {
+  display: flex;
+  align-items: center;
+}
+.logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+.logo-link:hover .logo-img {
+  opacity: 0.85;
 }
 
 .navbar .nav-links {
   list-style: none;
   display: flex;
 }
-
 .navbar .nav-links li {
   margin-left: 1.5rem;
 }
-
 .navbar .nav-links a {
   text-decoration: none;
   color: #333;
   font-size: 1rem;
   transition: color 0.3s ease;
 }
-
 .navbar .nav-links a:hover,
 .navbar .nav-links a.active {
   color: #007BFF;
 }
 
 /* =========================================================
-   HEADER + HERO SECTION
-   ========================================================= */
-.site-header {
-  margin-top: 80px;
-}
-
-.hero {
-  position: relative;
-  text-align: center;
-  padding: 4rem 2rem;
-  background: url('Data/Images/hero-background.jpg') no-repeat center center/cover;
-  color: #fff;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-/* =========================================================
-   BUTTONS
-   ========================================================= */
-.btn {
-  display: inline-block;
-  background-color: #28a745;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
-  text-decoration: none;
-  font-size: 1rem;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #218838;
-}
-
-/* =========================================================
-   MAIN CONTENT
+   PAGE CONTENT WRAPPER
    ========================================================= */
 main {
   padding: 2rem;
   max-width: 1200px;
-  margin: 100px auto 100px auto;
+  margin: 100px auto;
   background-color: #f4f4f4;
 }
 
@@ -152,8 +99,8 @@ section {
   margin-bottom: 2rem;
   background: #fff;
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 section h2 {
@@ -172,58 +119,209 @@ ul, ol {
   padding-left: 1.5rem;
   margin-top: 1rem;
 }
-
 li {
   margin-bottom: 0.5rem;
 }
 
 /* =========================================================
-   PRESENTATIONS + IFRAMES
+   COVER IMAGES (Home Page)
+   ========================================================= */
+.cover {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.cover-image {
+  width: 95%;
+  max-width: 900px;
+  border-radius: 14px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* =========================================================
+   FADE-IN SCROLL EFFECT
+   ========================================================= */
+.fade-in {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   PRESENTATIONS / IFRAMES
    ========================================================= */
 .iframe-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  margin: 2rem auto;
 }
-
-.presentation {
-  background: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.presentations .presentation iframe {
+.presentation iframe,
+.dropdown-content iframe {
   width: 100%;
-  height: 600px;
+  height: 650px;
+  border: none;
+  border-radius: 6px;
 }
 
 /* =========================================================
-   TEAM PAGE
+   LABS & REPORTS DROPDOWNS
    ========================================================= */
-.team-members {
+.dropdown-section {
+  margin-bottom: 2rem;
+}
+
+.dropdown-toggle {
+  width: 100%;
+  text-align: left;
+  padding: 1rem 1.25rem;
+  background: #007BFF;
+  color: #fff;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.dropdown-toggle:hover {
+  background: #005FCC;
+}
+
+.dropdown-content {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.dropdown-subtext {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+/* PDF grid (Labs) */
+.pdf-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+.pdf-item {
+  background: #fff;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+.pdf-item h3 {
+  margin-bottom: 0.75rem;
+  color: #007BFF;
+}
+.pdf-item iframe {
+  height: 700px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+/* Placeholder Box */
+.placeholder-box {
+  padding: 2rem;
+  text-align: center;
+  background: #fafafa;
+  border: 2px dashed #bbb;
+  border-radius: 10px;
+  color: #777;
+  font-size: 1.15rem;
+}
+
+/* =========================================================
+   TEAM PAGE — UPDATED CARD SYSTEM
+   ========================================================= */
+.team-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  justify-content: center;
 }
 
-.team-member {
+/* Flip Card */
+.card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+.card-inner {
+  width: 100%;
+  height: 360px;
+  position: relative;
+  transition: transform 0.85s;
+  transform-style: preserve-3d;
+}
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front & Back */
+.card-front,
+.card-back {
   background: #fff;
   padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-align: center;
 }
 
-.team-member img {
-  width: 150px;
-  height: 150px;
+.card-back {
+  transform: rotateY(180deg);
+  overflow-y: auto;
+}
+
+/* Headshots */
+.card-front img {
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
+  margin: 0 auto;
+  box-shadow: 0 0 0 4px #eee; /* removed blue ring */
+}
+
+/* Name & role alignment */
+.card-front h3,
+.card-back h3 {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Role tag with color variations */
+.role-tag {
   margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+/* Example role colors — assign appropriately */
+.role-dev { color: #007BFF; }
+.role-db  { color: #28A745; }
+.role-ai  { color: #6F42C1; }
+.role-web { color: #E83E8C; }
+.role-mentor { color: #FD7E14; }
+
+/* Back card text */
+.card-back p {
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin-top: 0.5rem;
 }
 
 /* =========================================================
@@ -238,120 +336,42 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 900;
 }
 
 footer a {
   color: #007BFF;
 }
-
 footer a:hover {
   text-decoration: underline;
 }
 
 /* =========================================================
-   NEW: DROPDOWNS FOR LABS PAGE
-   ========================================================= */
-
-/* Dropdown container */
-.dropdown-section {
-  margin-bottom: 2rem;
-}
-
-/* Dropdown toggle button */
-.dropdown-toggle {
-  width: 100%;
-  text-align: left;
-  padding: 1rem 1.25rem;
-  background: #007BFF;
-  color: #fff;
-  font-size: 1.3rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.dropdown-toggle:hover {
-  background: #005FCC;
-}
-
-.dropdown-content {
-  margin-top: 1rem;
-  padding: 1.5rem;
-  border-radius: 8px;
-  background: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Dropdown helper text */
-.dropdown-subtext {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  color: #666;
-}
-
-/* =========================================================
-   NEW: PDF GRID FOR INDIVIDUAL/GROUP LABS
-   ========================================================= */
-.pdf-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
-
-.pdf-item {
-  background: #fff;
-  padding: 1rem 1.25rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-}
-
-.pdf-item h3 {
-  margin-bottom: 0.75rem;
-  color: #007BFF;
-}
-
-.pdf-item iframe {
-  width: 100%;
-  height: 700px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-/* Placeholder for group labs */
-.placeholder-box {
-  padding: 2rem;
-  text-align: center;
-  background: #fafafa;
-  border: 2px dashed #bbb;
-  border-radius: 10px;
-  color: #777;
-  font-size: 1.1rem;
-}
-
-/* =========================================================
    RESPONSIVE ADJUSTMENTS
    ========================================================= */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
   .navbar {
     flex-direction: column;
     padding: 1rem;
   }
-
-  .navbar .nav-links {
+  .nav-links {
     flex-direction: column;
     width: 100%;
   }
-
-  .navbar .nav-links li {
+  .nav-links li {
     margin: 0.5rem 0;
-  }
-
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .pdf-item iframe {
-    height: 400px;
   }
 }
