@@ -1,27 +1,19 @@
 // main.js
 
 // ===============================
-// HTML Template Loader
+// HTML Template Loader (Pre-Paint)
 // ===============================
-async function loadHTML(url, targetId) {
-  const target = document.getElementById(targetId);
-  if (!target) return;
-
-  try {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`${url} failed: ${res.status}`);
-    target.innerHTML = await res.text();
-  } catch (err) {
-    console.error("templateLoader:", err);
-  }
+async function loadHTMLSync(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`${url} failed: ${res.status}`);
+  return res.text();
 }
 
 // ===============================
 // Fade-In Observer
 // ===============================
-let observer;
 function setupFadeIn() {
-  observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
@@ -30,13 +22,14 @@ function setupFadeIn() {
     });
   }, { threshold: 0.15 });
 
-  document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+  document.querySelectorAll(".fade-in").forEach((el) =>
+    observer.observe(el)
+  );
 }
 
 // ===============================
-// Event Delegation: Dropdowns
+// Dropdowns
 // ===============================
-// Works even if buttons are added later or scripts run early.
 function handleDropdownClick(btn) {
   const contentId = btn.getAttribute("aria-controls");
   if (!contentId) return;
@@ -44,14 +37,14 @@ function handleDropdownClick(btn) {
   const content = document.getElementById(contentId);
   if (!content) return;
 
-  const isOpen = btn.getAttribute("aria-expanded") === "true";
-  btn.setAttribute("aria-expanded", String(!isOpen));
-  content.hidden = isOpen;
+  const open = btn.getAttribute("aria-expanded") === "true";
+  btn.setAttribute("aria-expanded", String(!open));
+  content.hidden = open;
 
-  // Optional: swap arrow if present
+  // Optional arrow swap
   const txt = btn.textContent || "";
   if (txt.includes("▼") || txt.includes("▲")) {
-    btn.textContent = txt.replace(isOpen ? "▲" : "▼", isOpen ? "▼" : "▲");
+    btn.textContent = txt.replace(open ? "▲" : "▼", open ? "▼" : "▲");
   }
 }
 
@@ -61,9 +54,11 @@ function setupDelegatedDropdowns() {
     if (btn) handleDropdownClick(btn);
   });
 
-  // Keyboard accessibility (Enter/Space)
   document.addEventListener("keydown", (e) => {
-    if ((e.key === "Enter" || e.key === " ") && e.target.closest(".dropdown-toggle")) {
+    if (
+      (e.key === "Enter" || e.key === " ") &&
+      e.target.closest(".dropdown-toggle")
+    ) {
       e.preventDefault();
       handleDropdownClick(e.target.closest(".dropdown-toggle"));
     }
@@ -71,19 +66,17 @@ function setupDelegatedDropdowns() {
 }
 
 // ===============================
-// Event Delegation: Team Card Flips
+// Team Card Flips
 // ===============================
 function setupDelegatedCardFlips() {
   document.addEventListener("click", (e) => {
     const card = e.target.closest(".card");
-    if (card) {
-      card.classList.toggle("flipped");
-    }
+    if (card) card.classList.toggle("flipped");
   });
 }
 
 // ===============================
-// Mobile Menu (after header loads)
+// Mobile Menu
 // ===============================
 function setupMobileMenu() {
   const btn = document.querySelector(".menu-toggle");
@@ -98,20 +91,18 @@ function setupMobileMenu() {
 }
 
 // ===============================
-// DOM READY
+// DOM READY (Pre-Paint Includes)
 // ===============================
 document.addEventListener("DOMContentLoaded", async () => {
-  await Promise.all([
-    loadHTML("/Itiner-Ease/header.html", "header-placeholder"),
-    loadHTML("/Itiner-Ease/footer.html", "footer-placeholder"),
-  ]);
+  const header = await loadHTMLSync("/Itiner-Ease/header.html");
+  const footer = await loadHTMLSync("/Itiner-Ease/footer.html");
 
-  setupFadeIn();
-  setupCardFlips();
+  document.getElementById("header-placeholder").outerHTML = header;
+  document.getElementById("footer-placeholder").outerHTML = footer;
+
+  // Now that header/footer exist → initialize interactions
   setupMobileMenu();
-
-  // Run dropdown setup AFTER the entire page is fully loaded
-  window.addEventListener("load", () => {
-    setupDropdowns();
-  });
+  setupFadeIn();
+  setupDelegatedCardFlips();
+  setupDelegatedDropdowns();
 });
