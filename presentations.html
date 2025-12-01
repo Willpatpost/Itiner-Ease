@@ -147,23 +147,5 @@
   <!-- JS -->
   <script src="/Itiner-Ease/main.js"></script>
 
-  <!-- Dropdown Toggle JS -->
-  <script>
-    document.querySelectorAll(".dropdown-toggle").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const content = document.getElementById(btn.getAttribute("aria-controls"));
-        const isOpen = btn.getAttribute("aria-expanded") === "true";
-
-        btn.setAttribute("aria-expanded", !isOpen);
-        content.hidden = isOpen;
-
-        btn.textContent = btn.textContent.replace(
-          isOpen ? "▲" : "▼",
-          isOpen ? "▼" : "▲"
-        );
-      });
-    });
-  </script>
-
 </body>
 </html>
