@@ -213,29 +213,8 @@
   <!-- Footer -->
   <div id="footer-placeholder"></div>
 
-  <!-- Fade-in Animation -->
-  <script>
-    const fadeEls = document.querySelectorAll(".fade-in");
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
-      });
-    }, { threshold: 0.15 });
-
-    fadeEls.forEach(el => observer.observe(el));
-  </script>
-
-  <!-- Card Flip -->
-  <script>
-    document.querySelectorAll(".card").forEach(card => {
-      card.addEventListener("click", () => {
-        card.classList.toggle("flipped");
-      });
-    });
-  </script>
-
+  <!-- Script -->
   <script src="/Itiner-Ease/main.js"></script>
-  
 
 </body>
 </html>
